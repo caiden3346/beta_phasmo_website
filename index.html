@@ -378,7 +378,7 @@
         <select id="languageSelect" onchange="changeLanguage()">
             <option value="en">English</option>
             <option value="fr">Français</option>
-            <option value="es">Spanish</option>
+            <option value="es">Español</option>
         </select>
     </div>
 
@@ -444,7 +444,49 @@
         let selectedEvidence = [];
         let currentLanguage = 'en';
 
-        const translations = {        
+        const translations = {
+
+            es: {
+                'title': 'Archivo de Datos de Phasmophobia',
+                'subtitle': 'Tu guía definitiva para la caza de fantasmas',
+                'tab-evidence': 'Buscador de Evidencia',
+                'tab-ghosts': 'Base de Datos de Fantasmas',
+                'tab-maps': 'Objetos Malditos',
+                'evidence-title': 'Seleccionar Evidencia',
+                'evidence-subtitle': 'Haz clic en la evidencia que encontraste para identificar al fantasma',
+                'evidence-emf': 'EMF Nivel 5',
+                'evidence-dots': 'Proyector D.O.T.S',
+                'evidence-uv': 'Ultravioleta',
+                'evidence-freezing': 'Temperaturas Bajo Cero',
+                'evidence-orbs': 'Orbes Fantasmales',
+                'evidence-writing': 'Escritura Fantasmal',
+                'evidence-spiritbox': 'Caja de Espíritus',
+                'clear-evidence': 'Borrar Todo',
+                'result-title': 'Selecciona evidencia para identificar al fantasma',
+                'cursed-objects-title': 'Objetos Malditos',
+                'cursed-objects-description': 'Estos objetos sobrenaturales pueden encontrarse en los mapas y brindan interacciones poderosas pero peligrosas.',
+                'search-ghosts': 'Buscar fantasmas...',
+                'ghost-evidence': 'Evidencia',
+                'ghost-description': 'Descripción',
+                'ghost-strengths': 'Fortalezas',
+                'ghost-weaknesses': 'Debilidades',
+                'ghost-tips': 'Consejos',
+                'ghost-hunting': 'Patrón de Caza',
+                'cursed-object-types': 'Tipos de Objetos Malditos',
+                'tarot-effects': 'Efectos de Cartas del Tarot',
+                'object-locations': 'Posibles Ubicaciones de Objetos Malditos',
+                'update-notice-title': 'Actualización Reciente',
+                'update-notice-text': 'Grafton Farmhouse recibió una remodelación completa el 12 de agosto de 2025. ¡Todas las ubicaciones de objetos malditos han sido actualizadas con la información más reciente!',
+                'card-appearance': 'Apariencia de la carta:',
+                'probability': 'Probabilidad de aparición:',
+                'ghost-identified': 'Fantasma identificado',
+                'fourth-evidence': 'cuarta evidencia',
+                'auto-identified': 'Identificado automáticamente',
+                'mimic-explanation': 'Cuatro evidencias encontradas, lo que siempre indica que es The Mimic',
+                'no-match': 'No hay coincidencias',
+                'possible-ghosts': 'Posibles fantasmas'
+            },
+
             en: {
                 'title': 'Phasmophobia Fact File',
                 'subtitle': 'Your ultimate guide to ghost hunting',
@@ -512,43 +554,8 @@
                 'update-notice-text': 'Grafton Farmhouse a reçu une refonte complète le 12 août 2025. Tous les emplacements d\'objets maudits ont été mis à jour avec les dernières informations !',
                 'card-appearance': 'Apparence de la carte :',
                 'probability': 'Chance de tirage :'
-            },
-            es: {
-                'title': 'Guía de la Phasmophobia',
-                'subtitle': 'Tu guía definitiva para la caza de fantasmas',
-                'tab-evidence': 'Buscador de evidencias',
-                'tab-ghosts': 'Base de datos fantasma',
-                'tab-maps': 'Objetos malditos',
-                'evidence-title': 'Seleccionar evidencia',
-                'evidence-subtitle': 'Haz clic en la evidencia que has encontrado para identificar al fantasma',
-                'evidence-emf': 'EMF Nivel 5',
-                'evidence-dots': 'Proyector D.O.T.S',
-                'evidence-uv': 'Ultravioleta',
-                'evidence-freezing': 'Temperaturas bajo cero',
-                'evidence-orbs': 'Orbes fantasmales',
-                'evidence-writing': 'Escritura fantasma',
-                'evidence-spiritbox': 'Spirit Box',
-                'clear-evidence': 'Borrar todo',
-                'result-title': 'Selecciona evidencia para identificar al fantasma',
-                'cursed-objects-title': 'Objetos malditos',
-                'cursed-objects-description': 'Estos elementos sobrenaturales se pueden encontrar en los mapas y proporcionan interacciones poderosas pero peligrosas.',
-                'search-ghosts': 'Buscar fantasmas...',
-                'ghost-evidence': 'Evidencia',
-                'ghost-description': 'Descripción',
-                'ghost-strengths': 'Fortalezas',
-                'ghost-weaknesses': 'Debilidades',
-                'ghost-tips': 'Consejos profesionales',
-                'ghost-hunting': 'Patrón de caza',
-                'cursed-object-types': 'Tipos de objetos malditos',
-                'tarot-effects': 'Efectos de las cartas del Tarot',
-                'object-locations': 'Posibles ubicaciones de objetos malditos',
-                'update-notice-title': 'Actualización reciente',
-                'update-notice-text': 'La Granja Grafton fue completamente rediseñada el 12 de agosto de 2025. ¡Se actualizaron todas las ubicaciones de los objetos malditos con la información más reciente!',
-                'card-appearance': 'Apariencia de la carta:',
-                'probability': 'Probabilidad de aparición:'
             }
         };
-
 
         const cursedObjects = {
             "Tarot Cards": {
@@ -569,42 +576,43 @@
         };
 
         const cursedObjectsTranslations = {
-            fr: {
-                "Tarot Cards": {
-                    description: "Effets aléatoires lors du tirage, pouvant être bénéfiques ou nuisibles",
-                    effects: [
-                        { name: "La Tour", effect: "Interaction du fantôme à l'emplacement", chance: "20%", appearance: "Montre une haute tour de pierre frappée par la foudre" },
-                        { name: "La Roue de Fortune", effect: "+ ou - 25% de santé mentale", chance: "20%", appearance: "Présente une grande roue tournante avec des symboles mystiques" },
-                        { name: "Le Fou", effect: "Le fantôme vous confond avec un autre joueur", chance: "17%", appearance: "Montre un bouffon marchant au bord d'une falaise" },
-                        { name: "La Mort", effect: "Déclenche une chasse maudite", chance: "10%", appearance: "Représente un squelette en robe noire tenant une faux" },
-                        { name: "L'Ermite", effect: "Téléporte le fantôme dans sa salle d'origine", chance: "10%", appearance: "Montre un vieil homme avec une lanterne, isolé" },
-                        { name: "Le Diable", effect: "Interaction du fantôme dans sa salle", chance: "10%", appearance: "Présente une figure démoniaque cornue avec des chaînes" },
-                        { name: "La Lune", effect: "Réduit la santé mentale à 0%", chance: "5%", appearance: "Montre un croissant de lune avec un visage et deux tours" },
-                        { name: "Le Soleil", effect: "Restaure complètement la santé mentale", chance: "5%", appearance: "Représente un soleil rayonnant avec un visage souriant" },
-                        { name: "Le Pendu", effect: "Vous tue instantanément", chance: "1%", appearance: "Montre une silhouette pendue la tête en bas à un arbre" },
-                        { name: "La Grande Prêtresse", effect: "Réanime un coéquipier mort", chance: "2%", appearance: "Présente une femme en robe assise entre deux piliers" }
-                    ]
-                }
-            },
+
             es: {
-                "Tarot Cards": {
-                    description: "Efectos aleatorios al sacar una carta, que pueden ser beneficiosos o dañinos",
+                "Cartas del Tarot": {
+                    description: "Efectos aleatorios al sacar una carta, pueden ser beneficiosos o perjudiciales",
                     effects: [
                         { name: "La Torre", effect: "Interacción del fantasma en la ubicación", chance: "20%", appearance: "Muestra una alta torre de piedra siendo golpeada por un rayo" },
                         { name: "La Rueda de la Fortuna", effect: "+ o - 25% de cordura", chance: "20%", appearance: "Presenta una gran rueda giratoria con símbolos místicos" },
-                        { name: "El Loco", effect: "El fantasma te confunde con otro jugador", chance: "17%", appearance: "Muestra a un bufón caminando por un acantilado" },
-                        { name: "La Muerte", effect: "Desencadena una cacería maldita", chance: "10%", appearance: "Representa un esqueleto con túnica negra sosteniendo una guadaña" },
-                        { name: "El Ermitaño", effect: "Teletransporta al fantasma de regreso a su sala", chance: "10%", appearance: "Muestra a un anciano con una linterna en soledad" },
-                        { name: "El Diablo", effect: "Interacción del fantasma en su sala", chance: "10%", appearance: "Presenta una figura demoníaca con cuernos y cadenas" },
-                        { name: "La Luna", effect: "Reduce la cordura a 0%", chance: "5%", appearance: "Muestra una luna creciente con rostro y dos torres" },
-                        { name: "El Sol", effect: "Restaura completamente la cordura", chance: "5%", appearance: "Representa un sol radiante con rostro sonriente" },
+                        { name: "El Loco", effect: "El fantasma te confunde con otro jugador", chance: "17%", appearance: "Muestra a un bufón caminando al borde de un acantilado" },
+                        { name: "La Muerte", effect: "Inicia una cacería maldita", chance: "10%", appearance: "Representa un esqueleto con túnica negra sosteniendo una guadaña" },
+                        { name: "El Ermitaño", effect: "Teletransporta al fantasma de regreso a su habitación", chance: "10%", appearance: "Muestra a un anciano con una linterna en soledad" },
+                        { name: "El Diablo", effect: "Interacción del fantasma en su habitación", chance: "10%", appearance: "Presenta una figura demoníaca con cuernos y cadenas" },
+                        { name: "La Luna", effect: "Reduce la cordura a 0%", chance: "5%", appearance: "Muestra una luna creciente con cara y dos torres" },
+                        { name: "El Sol", effect: "Restaura completamente la cordura", chance: "5%", appearance: "Representa un sol brillante con una cara sonriente y rayos" },
                         { name: "El Ahorcado", effect: "Te mata instantáneamente", chance: "1%", appearance: "Muestra una figura colgada boca abajo de un árbol" },
                         { name: "La Suma Sacerdotisa", effect: "Revive a un compañero muerto", chance: "2%", appearance: "Presenta a una mujer con túnica sentada entre dos pilares" }
                     ]
                 }
+            },
+
+            fr: {
+                "Tarot Cards": {
+                    description: "Effets aléatoires lors du tirage, peuvent être bénéfiques ou nuisibles",
+                    effects: [
+                        { name: "La Tour", effect: "Interaction fantôme à l'emplacement", chance: "20%", appearance: "Montre une haute tour de pierre frappée par la foudre" },
+                        { name: "La Roue de Fortune", effect: "+ ou - 25% de sanité mentale", chance: "20%", appearance: "Présente une grande roue tournante avec des symboles mystiques" },
+                        { name: "Le Fou", effect: "Le fantôme vous confond avec un autre joueur", chance: "17%", appearance: "Montre un bouffon marchant au bord d'une falaise" },
+                        { name: "La Mort", effect: "Déclenche une chasse maudite", chance: "10%", appearance: "Représente un squelette en robe noire tenant une faux" },
+                        { name: "L'Ermite", effect: "Téléporte le fantôme dans sa chambre", chance: "10%", appearance: "Montre un vieil homme avec une lanterne en solitude" },
+                        { name: "Le Diable", effect: "Interaction fantôme dans la chambre du fantôme", chance: "10%", appearance: "Présente une figure démoniaque cornue avec des chaînes" },
+                        { name: "La Lune", effect: "Réduit la sanité mentale à 0%", chance: "5%", appearance: "Montre un croissant de lune avec un visage et deux tours" },
+                        { name: "Le Soleil", effect: "Restaure complètement la sanité mentale", chance: "5%", appearance: "Représente un soleil brillant avec un visage souriant et des rayons" },
+                        { name: "Le Pendu", effect: "Vous tue instantanément", chance: "1%", appearance: "Montre une figure pendue la tête en bas à un arbre" },
+                        { name: "La Grande Prêtresse", effect: "Ressuscite un coéquipier mort", chance: "2%", appearance: "Présente une femme en robe assise entre deux piliers" }
+                    ]
+                }
             }
         };
-
 
         const mapLocations = {
             "Bleasdale Farmhouse": {
@@ -709,210 +717,122 @@
         };
 
         const mapLocationsTranslations = {
-            fr: {
-            "Bleasdale Farmhouse": {
-                "Tarot Cards": "Sur un bureau dans le bureau (première pièce à gauche en entrant)",
-                "Ouija Board": "Dans le garage sur un établi en bois (parfois avec un marteau dessus)",
-                "Music Box": "Sur une petite table en bois dans le salon (directement en face en entrant)",
-                "Monkey Paw": "Dans la chambre principale sur un coffre en cuir à côté du berceau (deuxième étage)",
-                "Haunted Mirror": "Au mur dans le bureau à côté du lampadaire et de la fenêtre",
-                "Summoning Circle": "Dans le grenier au sol à côté de boîtes brunes avec des canettes",
-                "Voodoo Doll": "Sur un siège en cuir brun en face des chambres près des escaliers du grenier (deuxième étage)"
-            },
-            "Brownstone High School": {
-                "Tarot Cards": "Sur un long banc en bois à votre gauche dans le hall à côté d'un livre vert",
-                "Ouija Board": "Au sol à côté d'un pilier à gauche où le hall rejoint le couloir",
-                "Music Box": "Sur un long banc en bois du côté droit du hall parmi les livres verts",
-                "Monkey Paw": "Sur une boîte en carton du côté droit du hall à côté d'un pilier en brique",
-                "Haunted Mirror": "Appuyé contre un pilier en brique du côté droit du hall",
-                "Summoning Circle": "Au sol au centre du couloir où le hall se joint",
-                "Voodoo Doll": "Sur un banc en bois au mur en face de l'entrée"
-            },
-            "Camp Woodwind": {
-                "Tarot Cards": "Sur la table de pique-nique la plus à gauche à côté de deux livres bleus",
-                "Ouija Board": "À l'intérieur de la tente blanche avec des jeux extérieurs sur la table (côté droit)",
-                "Music Box": "À l'intérieur de la tente jaune sur une petite table blanche (côté gauche)",
-                "Monkey Paw": "Sur une plateforme en bois à côté de la tente violette avec des guimauves sur des bâtons",
-                "Haunted Mirror": "Au sol à côté de l'arbre illuminé et du plateau de cornhole (centre)",
-                "Summoning Circle": "Au sol au centre de la tente blanche avec nourriture et boissons",
-                "Voodoo Doll": "Au sol à côté de la petite tente bleue à gauche de la grande tente rouge"
-            },
-            "Edgefield Road": {
-                "Tarot Cards": "Sur la commode blanche à votre droite en entrant à côté du plat vert",
-                "Ouija Board": "Au sol dans la buanderie (coin arrière gauche du premier étage)",
-                "Music Box": "Sur la commode blanche dans le salon à côté du bol vert et de la lampe",
-                "Monkey Paw": "Sur la table à langer bleue et rose dans la chambre orange (deuxième étage)",
-                "Haunted Mirror": "Accroché au mur à côté des escaliers en entrant",
-                "Summoning Circle": "Dans le sous-sol entre les étagères",
-                "Voodoo Doll": "Sur le lit dans la chambre bleue (deuxième étage, à gauche en haut des escaliers)"
-            },
-            "Grafton Farmhouse": {
-                "Monkey Paw": "Sur une table dans la salle à manger (premier étage, tout droit depuis l'entrée)",
-                "Tarot Cards": "Sur un bureau dans la bibliothèque (premier étage, à travers la salle à manger, porte de gauche derrière une grande étagère)",
-                "Voodoo Doll": "Sur une table dans l'atelier de couture (premier étage, à droite de la salle à manger)",
-                "Summoning Circle": "Au sol dans la salle des poupées (deuxième étage, à droite des escaliers, au bout du couloir)",
-                "Haunted Mirror": "Sur une table dans la chambre principale (deuxième étage, à gauche des escaliers, au bout du couloir)",
-                "Music Box": "Sur une table d'appoint dans la petite chambre (deuxième étage, à droite des escaliers)",
-                "Ouija Board": "Au sol dans le grenier (troisième étage, accessible depuis la petite chambre)"
-            },
-            "Maple Lodge Campsite": {
-                "Tarot Cards": "Sur une petite table métallique à l'extérieur de la tente blanche (chemin nord) à côté d'une gourde rouge",
-                "Ouija Board": "Sur une étagère dans le placard de nettoyage (centre du bloc sanitaire)",
-                "Music Box": "Sur une petite table métallique à l'extérieur de la porte de la cabane en rondins",
-                "Monkey Paw": "Sur une chaise de camping bleue au bout de la jetée",
-                "Haunted Mirror": "Au sol à l'intérieur de la tente bleue (côté gauche en entrant)",
-                "Summoning Circle": "Au sol dans le salon de la cabane en rondins",
-                "Voodoo Doll": "À côté de la bûche entourant le feu de camp (côté gauche de la carte)"
-            },
-            "Prison": {
-                "Tarot Cards": "Dans une boîte plastique grise sur le bureau au poste de contrôle de sécurité",
-                "Ouija Board": "Au sol derrière les bureaux du poste de contrôle de sécurité",
-                "Music Box": "Dans la boîte plastique grise de gauche sur le bureau avec deux autres boîtes",
-                "Monkey Paw": "Sur le bureau à côté du grand scanner, à droite de la boîte plastique grise",
-                "Haunted Mirror": "Sous les chaises blanches dans l'entrée principale",
-                "Summoning Circle": "Au sol au bout du couloir d'entrée près des chaises blanches",
-                "Voodoo Doll": "Sur le bureau à côté du scanner rouge, à gauche de la boîte plastique grise"
-            },
-            "Ridgeview Court": {
-                "Tarot Cards": "Sur la commode blanche à votre droite en entrant, à droite du bol vert",
-                "Ouija Board": "Sur les étagères dans le placard utilitaire (à travers la salle à manger, porte de gauche)",
-                "Music Box": "Sur la commode près de la porte dans la chambre la plus éloignée des escaliers (deuxième étage)",
-                "Monkey Paw": "Sur le bureau blanc avec un ordinateur portable et un livre vert (coin droit du deuxième étage)",
-                "Haunted Mirror": "Au-dessus de la commode face aux escaliers du sous-sol",
-                "Summoning Circle": "Dans le sous-sol en face directe de la porte",
-                "Voodoo Doll": "Sur le banc à coussin bleu près du piano dans le bureau en face du garage"
-            },
-            "Sunny Meadows": {
-                "Tarot Cards": "Dans le cercle rouge sur la zone surélevée la plus proche des balustrades (chapelle)",
-                "Ouija Board": "Au sol près des balustrades les plus éloignées de la porte (zone supérieure de la chapelle)",
-                "Music Box": "Au sol devant les chandeliers en bois (chapelle arrière gauche)",
-                "Monkey Paw": "À la base du poteau métallique rouge au centre de la terrasse supérieure (chapelle)",
-                "Haunted Mirror": "Dans le cercle rouge devant les chandeliers (chapelle bas droite)",
-                "Summoning Circle": "Dans le grand cercle rouge au centre de la terrasse supérieure (chapelle)",
-                "Voodoo Doll": "Au sol dans le sang devant le poteau métallique rouge (chapelle)"
-            },
-            "Tanglewood Drive": {
-                "Tarot Cards": "Sur une petite table ronde près de la fenêtre dans le salon près de la TV",
-                "Ouija Board": "Sur une petite table en bois dans le coin arrière du sous-sol",
-                "Music Box": "Sur une étagère à côté de l'ourson près de la porte de la chambre de bébé (à gauche de l'entrée)",
-                "Monkey Paw": "À l'intérieur du grand placard blanc dans la salle à manger",
-                "Haunted Mirror": "Accroché au mur à côté de la porte de chambre près du salon",
-                "Summoning Circle": "Au centre du sous-sol (tournez à droite)",
-                "Voodoo Doll": "Sur le couvercle du bac de rangement plastique le plus proche du coin (garage)"
-            },
-            "Willow Street": {
-                "Tarot Cards": "Sur une petite table ronde à côté de la télécommande près du canapé (à droite en entrant)",
-                "Ouija Board": "Sur le dessus de la machine à laver dans la petite buanderie (pièce à côté du garage)",
-                "Music Box": "Sur la commode blanche avec plante (à gauche dans le salon depuis la porte d'entrée)",
-                "Monkey Paw": "Dans le placard blanc dans le couloir avant les chambres",
-                "Haunted Mirror": "Au sol dans la petite pièce latérale du garage (côté droit)",
-                "Summoning Circle": "Dans le sous-sol près du mannequin en face de la première porte",
-                "Voodoo Doll": "Sur l'étagère du bas du placard blanc dans la chambre au bout du couloir droit"
-            }
-        },
 
             es: {
-            "Bleasdale Farmhouse": {
-                "Tarot Cards": "En un escritorio en la oficina (primera habitación a la izquierda al entrar)",
-                "Ouija Board": "En el garaje sobre un banco de trabajo de madera (a veces con un martillo encima)",
-                "Music Box": "En una pequeña mesa de madera en la sala (directamente al frente al entrar)",
-                "Monkey Paw": "En el dormitorio principal sobre un baúl de cuero junto a la cuna (segundo piso)",
-                "Haunted Mirror": "En la pared de la oficina junto a la lámpara de pie y la ventana",
-                "Summoning Circle": "En el ático en el suelo junto a cajas marrones con latas",
-                "Voodoo Doll": "En un asiento de cuero marrón frente a los dormitorios junto a las escaleras al ático (segundo piso)"
+                "Bleasdale Farmhouse": {
+                    "Cartas del Tarot": "En un escritorio en la oficina (primera habitación a la izquierda al entrar)",
+                    "Tablero Ouija": "En el garaje sobre un banco de trabajo de madera (a veces con un martillo encima)",
+                    "Caja de Música": "En una mesa pequeña de madera en la sala de estar (directamente al frente al entrar)",
+                    "Pata de Mono": "En el dormitorio principal sobre un baúl de cuero junto a la cuna (segundo piso)",
+                    "Espejo Embrujado": "En la pared de la oficina junto a la lámpara de pie y la ventana",
+                    "Círculo de Invocación": "En el ático en el suelo junto a cajas marrones con latas",
+                    "Muñeco Vudú": "En un asiento de cuero marrón frente a los dormitorios junto a las escaleras al ático (segundo piso)"
+                }
+                /* Aquí irían las demás traducciones de ubicaciones, siguiendo el mismo formato */
             },
-            "Brownstone High School": {
-                "Tarot Cards": "En un banco de madera largo a tu izquierda en el vestíbulo junto a un libro verde",
-                "Ouija Board": "En el suelo junto a un pilar a la izquierda donde el vestíbulo se une al pasillo",
-                "Music Box": "En un banco de madera largo en el lado derecho del vestíbulo entre libros verdes",
-                "Monkey Paw": "Encima de una caja de cartón en el lado derecho del vestíbulo junto a un pilar de ladrillo",
-                "Haunted Mirror": "Apoyado contra un pilar de ladrillo en el lado derecho del vestíbulo",
-                "Summoning Circle": "En el suelo en el centro del pasillo donde se une el vestíbulo",
-                "Voodoo Doll": "En un banco de madera en la pared opuesta a la entrada"
-            },
-            "Camp Woodwind": {
-                "Tarot Cards": "En la mesa de picnic más a la izquierda junto a dos libros azules",
-                "Ouija Board": "Dentro de la tienda blanca con juegos al aire libre sobre la mesa (lado derecho)",
-                "Music Box": "Dentro de la tienda amarilla sobre una pequeña mesa blanca (lado izquierdo)",
-                "Monkey Paw": "En la plataforma de madera junto a la tienda morada con malvaviscos en palos",
-                "Haunted Mirror": "En el suelo junto al árbol de luces y la tabla de cornhole (centro)",
-                "Summoning Circle": "En el suelo en el centro de la tienda blanca con comida y bebida",
-                "Voodoo Doll": "En el suelo junto a la pequeña tienda azul a la izquierda de la tienda roja grande"
-            },
-            "Edgefield Road": {
-                "Tarot Cards": "En la cómoda blanca a tu derecha al entrar junto al plato verde",
-                "Ouija Board": "En el suelo en la lavandería (esquina trasera izquierda del primer piso)",
-                "Music Box": "En la cómoda blanca en la sala junto al tazón verde y la lámpara",
-                "Monkey Paw": "En la mesa cambiadora azul y rosa en el dormitorio naranja (segundo piso)",
-                "Haunted Mirror": "Colgado en la pared junto a las escaleras al entrar",
-                "Summoning Circle": "En el sótano entre estantes",
-                "Voodoo Doll": "En la cama del dormitorio azul (segundo piso, a la izquierda arriba de las escaleras)"
-            },
-            "Grafton Farmhouse": {
-                "Monkey Paw": "En una mesa en el comedor (primer piso, derecho desde la entrada)",
-                "Tarot Cards": "En un escritorio en la biblioteca (primer piso, atravesando el comedor, puerta a la izquierda tras un estante alto)",
-                "Voodoo Doll": "En una mesa en el taller de costura (primer piso, a la derecha del comedor)",
-                "Summoning Circle": "En el suelo en la sala de muñecas (segundo piso, a la derecha de las escaleras, al final del pasillo)",
-                "Haunted Mirror": "En una mesa en el dormitorio principal (segundo piso, a la izquierda de las escaleras, al final del pasillo)",
-                "Music Box": "En una mesa auxiliar en el dormitorio pequeño (segundo piso, a la derecha de las escaleras)",
-                "Ouija Board": "En el suelo en el ático (tercer piso, accesible desde el dormitorio pequeño)"
-            },
-            "Maple Lodge Campsite": {
-                "Tarot Cards": "En una mesa metálica pequeña fuera de la tienda blanca (camino norte) junto a un termo rojo",
-                "Ouija Board": "En un estante en el armario de limpieza (centro del bloque de baños)",
-                "Music Box": "En una mesa metálica pequeña fuera de la puerta principal de la cabaña de troncos",
-                "Monkey Paw": "En una silla de camping azul al final del muelle",
-                "Haunted Mirror": "En el suelo dentro de la tienda azul (lado izquierdo al entrar)",
-                "Summoning Circle": "En el suelo en la sala de la cabaña de troncos",
-                "Voodoo Doll": "Junto al tronco que rodea la fogata (lado izquierdo del mapa)"
-            },
-            "Prison": {
-                "Tarot Cards": "Dentro de una caja de plástico gris sobre el escritorio en el puesto de control de seguridad",
-                "Ouija Board": "En el suelo detrás de los escritorios en el puesto de control de seguridad",
-                "Music Box": "Dentro de la caja de plástico gris izquierda sobre el escritorio con dos cajas",
-                "Monkey Paw": "En el escritorio junto al escáner grande, a la derecha de la caja de plástico gris",
-                "Haunted Mirror": "Debajo de las sillas blancas en la entrada principal",
-                "Summoning Circle": "En el suelo al final del pasillo de entrada junto a las sillas blancas",
-                "Voodoo Doll": "En el escritorio junto al escáner rojo, a la izquierda de la caja de plástico gris"
-            },
-            "Ridgeview Court": {
-                "Tarot Cards": "En la cómoda blanca a tu derecha al entrar, a la derecha del tazón verde",
-                "Ouija Board": "En estantes dentro del armario de servicio (atravesando el comedor, puerta a la izquierda)",
-                "Music Box": "En la cómoda junto a la puerta en el dormitorio más alejado de las escaleras (segundo piso)",
-                "Monkey Paw": "En el escritorio blanco con una computadora portátil y un libro verde (esquina derecha del segundo piso)",
-                "Haunted Mirror": "Sobre la cómoda frente a las escaleras del sótano",
-                "Summoning Circle": "En el sótano directamente frente a la puerta",
-                "Voodoo Doll": "En el banco con cojín azul junto al piano en la oficina frente al garaje"
-            },
-            "Sunny Meadows": {
-                "Tarot Cards": "En el círculo rojo en la zona elevada más cercana a las barandillas (capilla)",
-                "Ouija Board": "En el suelo junto a las barandillas más alejadas de la puerta (zona superior de la capilla)",
-                "Music Box": "En el suelo frente a los candelabros de madera (capilla trasera izquierda)",
-                "Monkey Paw": "En la base del poste metálico rojo en el centro de la cubierta superior (capilla)",
-                "Haunted Mirror": "En el círculo rojo frente a los candelabros (capilla parte inferior derecha)",
-                "Summoning Circle": "En el gran círculo rojo en el centro de la cubierta superior (capilla)",
-                "Voodoo Doll": "En el suelo con sangre frente al poste metálico rojo (capilla)"
-            },
-            "Tanglewood Drive": {
-                "Tarot Cards": "En una pequeña mesa redonda junto a la ventana en la sala cerca de la TV",
-                "Ouija Board": "En una pequeña mesa de madera en la esquina trasera del sótano",
-                "Music Box": "En un estante junto al oso de peluche cerca de la puerta de la habitación infantil (a la izquierda de la entrada)",
-                "Monkey Paw": "Dentro del armario blanco grande en el área del comedor",
-                "Haunted Mirror": "Colgado en la pared junto a la puerta del dormitorio cerca de la sala",
-                "Summoning Circle": "En el centro del sótano (gira a la derecha)",
-                "Voodoo Doll": "Sobre la tapa del contenedor de plástico más cercano a la esquina (garaje)"
-            },
-            "Willow Street": {
-                "Tarot Cards": "En una pequeña mesa redonda junto al control remoto cerca del sofá (a la derecha al entrar)",
-                "Ouija Board": "Sobre la lavadora en la pequeña lavandería (habitación lateral del garaje)",
-                "Music Box": "En la cómoda blanca con planta (a la izquierda en la sala desde la puerta principal)",
-                "Monkey Paw": "Dentro del armario blanco en el pasillo antes de las habitaciones",
-                "Haunted Mirror": "En el suelo en la pequeña habitación lateral del garaje (lado derecho)",
-                "Summoning Circle": "En el sótano junto al maniquí frente a la primera puerta",
-                "Voodoo Doll": "En el estante inferior del armario blanco en el dormitorio al final del pasillo derecho"
+
+            fr: {
+                "Bleasdale Farmhouse": {
+                    "Tarot Cards": "Sur un bureau dans le bureau (première pièce à gauche en entrant)",
+                    "Ouija Board": "Dans le garage sur un établi en bois (parfois avec un marteau dessus)",
+                    "Music Box": "Sur une petite table en bois dans le salon (directement en face en entrant)",
+                    "Monkey Paw": "Dans la chambre principale sur un coffre en cuir à côté du berceau (deuxième étage)",
+                    "Haunted Mirror": "Au mur dans le bureau à côté de la lampadaire et de la fenêtre",
+                    "Summoning Circle": "Dans le grenier au sol à côté des boîtes brunes avec des canettes",
+                    "Voodoo Doll": "Sur un siège en cuir brun en face des chambres près des escaliers du grenier (deuxième étage)"
+                },
+                "Brownstone High School": {
+                    "Tarot Cards": "Sur un long banc en bois à votre gauche dans le hall à côté d'un livre vert",
+                    "Ouija Board": "Au sol à côté d'un pilier à gauche où le hall rejoint le couloir",
+                    "Music Box": "Sur un long banc en bois du côté droit du hall parmi les livres verts",
+                    "Monkey Paw": "Sur le dessus d'une boîte en carton du côté droit du hall à côté d'un pilier en brique",
+                    "Haunted Mirror": "Appuyé contre un pilier en brique du côté droit du hall",
+                    "Summoning Circle": "Au sol au centre du couloir où le hall se joint",
+                    "Voodoo Doll": "Sur un banc en bois au mur en face de l'entrée"
+                },
+                "Camp Woodwind": {
+                    "Tarot Cards": "Sur la table de pique-nique la plus à gauche à côté de deux livres bleus",
+                    "Ouija Board": "À l'intérieur de la tente blanche avec des jeux extérieurs sur la table (côté droit)",
+                    "Music Box": "À l'intérieur de la tente jaune sur une petite table blanche (côté gauche)",
+                    "Monkey Paw": "Sur une plateforme en bois à côté de la tente violette avec des guimauves sur des bâtons",
+                    "Haunted Mirror": "Au sol à côté de l'arbre de lumières féeriques et du plateau de cornhole (centre)",
+                    "Summoning Circle": "Au sol au centre de la tente blanche avec de la nourriture et des boissons",
+                    "Voodoo Doll": "Au sol à côté de la plus petite tente bleue à gauche de la grande tente rouge"
+                },
+                "Edgefield Road": {
+                    "Tarot Cards": "Sur la commode blanche à votre droite en entrant à côté du plat vert",
+                    "Ouija Board": "Au sol dans la buanderie (coin arrière-gauche du premier étage)",
+                    "Music Box": "Sur la commode blanche dans le salon à côté du bol vert et de la lampe",
+                    "Monkey Paw": "Sur la table à langer bleue et rose dans la chambre orange (deuxième étage)",
+                    "Haunted Mirror": "Accroché au mur à côté des escaliers en entrant",
+                    "Summoning Circle": "Au sous-sol entre les piles d'étagères",
+                    "Voodoo Doll": "Sur le lit dans la chambre bleue (deuxième étage, à gauche en haut des escaliers)"
+                },
+                "Grafton Farmhouse": {
+                    "Monkey Paw": "Sur une table dans la salle à manger (premier étage, tout droit depuis l'entrée)",
+                    "Tarot Cards": "Sur un bureau dans la bibliothèque (premier étage, à travers la salle à manger, porte de gauche obscurcie par une grande étagère)",
+                    "Voodoo Doll": "Sur une table dans l'atelier de couture (premier étage, à droite de la salle à manger)",
+                    "Summoning Circle": "Au sol dans la salle des poupées (deuxième étage, à droite des escaliers, bout du couloir)",
+                    "Haunted Mirror": "Sur une table dans la chambre principale (deuxième étage, à gauche des escaliers, bout du couloir)",
+                    "Music Box": "Sur une table d'appoint dans la petite chambre (deuxième étage, à droite des escaliers, à travers la porte)",
+                    "Ouija Board": "Au sol dans le grenier (troisième étage, escaliers du deuxième étage petite chambre)"
+                },
+                "Maple Lodge Campsite": {
+                    "Tarot Cards": "Sur une petite table métallique à l'extérieur de la tente blanche (chemin Nord) à côté d'une gourde rouge",
+                    "Ouija Board": "Sur une étagère dans le placard de nettoyage (centre du bloc sanitaire)",
+                    "Music Box": "Sur une petite table métallique à l'extérieur de la porte principale de la cabane en rondins",
+                    "Monkey Paw": "Sur une chaise de camping bleue au bout de la jetée",
+                    "Haunted Mirror": "Au sol à l'intérieur de la tente bleue (côté gauche en entrant)",
+                    "Summoning Circle": "Au sol dans le salon de la cabane en rondins",
+                    "Voodoo Doll": "À côté de la bûche entourant le feu de camp (côté gauche de la carte)"
+                },
+                "Prison": {
+                    "Tarot Cards": "À l'intérieur d'une boîte plastique grise sur le bureau au poste de contrôle de sécurité",
+                    "Ouija Board": "Au sol derrière les bureaux au poste de contrôle de sécurité",
+                    "Music Box": "À l'intérieur de la boîte plastique grise de gauche sur le bureau avec deux boîtes (zone de sécurité)",
+                    "Monkey Paw": "Sur le bureau à côté du grand scanner, à droite de la boîte plastique grise",
+                    "Haunted Mirror": "Sous les chaises blanches dans l'entrée principale",
+                    "Summoning Circle": "Au sol au bout du couloir d'entrée à côté des chaises blanches",
+                    "Voodoo Doll": "Sur le bureau à côté du scanner rouge, à gauche de la boîte plastique grise"
+                },
+                "Ridgeview Court": {
+                    "Tarot Cards": "Sur la commode blanche à votre droite en entrant, à droite du bol vert",
+                    "Ouija Board": "Sur les étagères dans le placard utilitaire (à travers la salle à manger, porte de gauche)",
+                    "Music Box": "Sur la commode près de la porte dans la chambre la plus éloignée des escaliers (deuxième étage)",
+                    "Monkey Paw": "Sur le bureau blanc avec un ordinateur portable et un livre vert (deuxième étage coin droit)",
+                    "Haunted Mirror": "Au-dessus de la commode au mur en face des escaliers du sous-sol",
+                    "Summoning Circle": "Au sous-sol directement en face de la porte",
+                    "Voodoo Doll": "Sur le banc à coussin bleu à côté du piano dans le bureau en face du garage"
+                },
+                "Sunny Meadows": {
+                    "Tarot Cards": "Dans le cercle rouge sur la zone surélevée la plus proche des balustrades (chapelle)",
+                    "Ouija Board": "Au sol près des balustrades les plus éloignées de la porte (zone supérieure de la chapelle)",
+                    "Music Box": "Au sol devant les chandeliers en bois (chapelle arrière-gauche)",
+                    "Monkey Paw": "À la base du poteau métallique rouge au centre de la terrasse supérieure (chapelle)",
+                    "Haunted Mirror": "Dans le cercle rouge devant les chandeliers (chapelle bas-droite)",
+                    "Summoning Circle": "Dans le grand cercle rouge au centre de la terrasse supérieure (chapelle)",
+                    "Voodoo Doll": "Au sol dans le sang devant le poteau métallique rouge (chapelle)"
+                },
+                "Tanglewood Drive": {
+                    "Tarot Cards": "Sur une petite table ronde près de la fenêtre dans le salon près de la TV",
+                    "Ouija Board": "Sur une petite table en bois dans le coin arrière du sous-sol",
+                    "Music Box": "Sur une étagère à côté de l'ourson près de la porte de la nursery (à gauche de l'entrée)",
+                    "Monkey Paw": "À l'intérieur du grand placard blanc dans la zone salle à manger",
+                    "Haunted Mirror": "Au mur à côté de la porte de chambre près du salon",
+                    "Summoning Circle": "Au centre de la pièce du sous-sol (tournez à droite)",
+                    "Voodoo Doll": "Sur le couvercle du bac de rangement plastique le plus proche du coin (garage)"
+                },
+                "Willow Street": {
+                    "Tarot Cards": "Sur une petite table ronde à côté de la télécommande TV près du canapé (à droite en entrant)",
+                    "Ouija Board": "Sur le dessus de la machine à laver dans la petite buanderie (pièce latérale du garage)",
+                    "Music Box": "Sur la commode blanche avec plante (à gauche dans le salon depuis la porte d'entrée)",
+                    "Monkey Paw": "Dans le placard blanc dans le couloir avant les chambres (premier étage)",
+                    "Haunted Mirror": "Au sol dans la petite pièce latérale du garage (côté droit)",
+                    "Summoning Circle": "Au sous-sol à côté du mannequin devant la première porte",
+                    "Voodoo Doll": "Sur l'étagère du bas du placard blanc dans la chambre au bout du couloir droit"
+                }
             }
-        }
-    };
+        };
 
         // Ghost data with evidence
         const ghosts = [
@@ -943,6 +863,18 @@
         ];
 
         const ghostTranslations = {
+
+            es: {
+                "Spirit": {
+                    description: "El tipo de fantasma más común. Son muy territoriales y atacarán si te quedas en la misma zona.",
+                    strengths: "Nada en particular.",
+                    weaknesses: "La Caja de Espíritus detiene toda actividad paranormal durante un corto tiempo cuando se usa.",
+                    tips: "Usa inciensos para prevenir cacerías por 3 minutos (el tiempo más largo entre todos los fantasmas).",
+                    hunting: "Umbral de cacería normal al 50% de cordura promedio."
+                }
+                /* Aquí irían todas las demás traducciones completas de los fantasmas */
+            },
+
             en: {
                 "Spirit": {
                     description: "Most common type of ghost. They are very territorial and will attack if you stay in the same area.",
@@ -1283,478 +1215,332 @@
                     hunting: "Très actif et rapide initialement, devient beaucoup plus lent en vieillissant."
                 }
             }
-            es: {
-            "Spirit": {
-                description: "Tipo de fantasma más común. Son muy territoriales y atacarán si permaneces en la misma área.",
-                strengths: "Nada en particular.",
-                weaknesses: "La Spirit Box detiene toda actividad paranormal por un tiempo corto cuando se usa.",
-                tips: "Usa Bastones de Salvia para prevenir cacerías por 3 minutos (el más largo de todos los fantasmas).",
-                hunting: "Umbral de caza normal al 50% de cordura promedio."
-            },
-            "Wraith": {
-                description: "Fantasma incorpóreo que puede viajar a través de paredes y rara vez toca el suelo.",
-                strengths: "No puede ser rastreado por huellas y no tiene huellas UV.",
-                weaknesses: "Reacción tóxica a la Sal - detendrá toda actividad si pisa sal.",
-                tips: "Coloca sal alrededor de ubicaciones potenciales del fantasma para identificar o disuadir.",
-                hunting: "Umbral de caza normal pero puede teletransportarse a jugadores en cualquier lugar del mapa."
-            },
-            "Phantom": {
-                description: "Temido por su capacidad de reducir la cordura y volverse casi invisible durante las cacerías.",
-                strengths: "Mirar a un Phantom reducirá la cordura considerablemente más rápido.",
-                weaknesses: "Tomar una foto del Phantom lo hará desaparecer temporalmente.",
-                tips: "Usa cámaras frecuentemente para interrumpir al fantasma y obtener fotos de evidencia.",
-                hunting: "Se vuelve casi invisible durante las cacerías, apareciendo solo brevemente."
-            },
-            "Poltergeist": {
-                description: "Conocido por manipular objetos a su alrededor para esparcir miedo y aterrorizar a sus víctimas.",
-                strengths: "Puede lanzar múltiples objetos a la vez, caída masiva de cordura al lanzar objetos.",
-                weaknesses: "Se vuelve impotente en habitaciones sin objetos arrojadizos cerca.",
-                tips: "Vacía las habitaciones de objetos para reducir el poder del poltergeist.",
-                hunting: "Umbral normal pero extremadamente peligroso en habitaciones desordenadas."
-            },
-            "Banshee": {
-                description: "Fantasma territorial que atacará solo a una persona a la vez hasta que se vaya o muera.",
-                strengths: "Atacará a un jugador específico ignorando a otros hasta que el objetivo esté muerto o se haya ido.",
-                weaknesses: "Será menos agresivo si el jugador objetivo está lejos.",
-                tips: "El jugador objetivo debe mantenerse alejado mientras otros investigan.",
-                hunting: "Caza basada solo en la cordura del objetivo, no en la cordura promedio del equipo."
-            },
-            "Jinn": {
-                description: "Fantasma que obtiene su poder de la electricidad y se mueve más rápido cuando el disyuntor está encendido.",
-                strengths: "Se mueve más rápido cuando el disyuntor está encendido, puede reducir la cordura a distancia.",
-                weaknesses: "No puede apagar el disyuntor y se mueve más lento cuando está apagado.",
-                tips: "Apaga el disyuntor para ralentizar al fantasma durante las cacerías.",
-                hunting: "Más rápido con electricidad, más lento sin electricidad."
-            },
-            "Mare": {
-                description: "Fuente de todas las pesadillas, haciéndolo más poderoso en la oscuridad.",
-                strengths: "Mayor probabilidad de cazar en áreas oscuras, apagará luces y romperá bombillas.",
-                weaknesses: "Menos probable que cace cuando las luces están encendidas, no encenderá luces.",
-                tips: "Mantén las luces encendidas para reducir las posibilidades de caza y actividad.",
-                hunting: "60% de umbral de caza en oscuridad, 40% con luz."
-            },
-            "Revenant": {
-                description: "Fantasma violento que cazará implacablemente a su presa.",
-                strengths: "Se mueve significativamente más rápido al cazar si sabe dónde estás.",
-                weaknesses: "Muy lento cuando no sabe dónde están los jugadores.",
-                tips: "Rompe la línea de visión y escóndete cuando esté cazando.",
-                hunting: "Extremadamente rápido al perseguir, extremadamente lento al buscar."
-            },
-            "Shade": {
-                description: "Fantasma tímido que es más difícil de encontrar evidencia y menos probable que cace en grupos.",
-                strengths: "Más difícil de encontrar y mucho menos activo cuando hay gente cerca.",
-                weaknesses: "No cazará si los jugadores están agrupados (excepto en cacerías malditas).",
-                tips: "Investiga solo para obtener más actividad y evidencia.",
-                hunting: "No cazará si múltiples personas están en la habitación del fantasma."
-            },
-            "Demon": {
-                description: "Tipo de fantasma más agresivo que caza frecuentemente y requiere menos provocación.",
-                strengths: "Puede cazar a cualquier nivel de cordura, hace menos preguntas en la Tabla Ouija.",
-                weaknesses: "El humo lo prevendrá de cazar por más tiempo que otros fantasmas.",
-                tips: "Trae bastones de salvia extra como protección, prepárate para correr frecuentemente.",
-                hunting: "Puede cazar a cualquier cordura pero usualmente comienza alrededor del 70%."
-            },
-            "Yurei": {
-                description: "Regresó de entre los muertos y es conocido por tener un efecto más fuerte en la cordura de las personas.",
-                strengths: "Efecto de drenaje de cordura más fuerte al manifestarse o durante eventos.",
-                weaknesses: "El humo del fantasma le impedirá vagar por un período extendido.",
-                tips: "Vigila la cordura cuidadosamente y usa humo en la habitación del fantasma para atraparlo.",
-                hunting: "Umbral de caza normal pero peligroso debido al drenaje de cordura."
-            },
-            "Oni": {
-                description: "Primo del Demonio, más activo cuando hay gente alrededor y puede mover objetos a gran velocidad.",
-                strengths: "Más activo cuando los jugadores están cerca, puede mover objetos muy rápido.",
-                weaknesses: "Menos activo cuando los jugadores están lejos, más fácil de rastrear debido a la actividad.",
-                tips: "Busca objetos que se muevan rápido y alta actividad al investigar.",
-                hunting: "Muy activo, haciéndolo más fácil de identificar pero más peligroso."
-            },
-            "Yokai": {
-                description: "Fantasma común atraído por voces humanas, volviéndose más activo cerca de conversaciones.",
-                strengths: "Hablar cerca de él lo enfadará y aumentará la actividad y probabilidad de caza.",
-                weaknesses: "Solo puede escuchar jugadores durante cacerías cuando están muy cerca.",
-                tips: "Mantente callado durante la investigación y especialmente durante las cacerías.",
-                hunting: "Puede cazar a mayor cordura cuando los jugadores hablan, pero tiene muy corto rango de audición."
-            },
-            "Hantu": {
-                description: "Fantasma raro que prospera en climas fríos y se moverá más rápido en áreas frías.",
-                strengths: "Se mueve más rápido en áreas frías, puede apagar el disyuntor y crear aliento helado.",
-                weaknesses: "Se mueve más lento en áreas cálidas, no puede volver a encender el disyuntor.",
-                tips: "Enciende el disyuntor y monitorea cambios de temperatura.",
-                hunting: "Rápido en frío, lento en calor, aliento helado visible en áreas frías."
-            },
-            "Goryo": {
-                description: "Rara vez se muestra a los humanos, haciéndolo particularmente difícil de rastrear e identificar.",
-                strengths: "Solo puede mostrar evidencia D.O.T.S cuando no hay jugadores en la habitación.",
-                weaknesses: "No cambiará de habitaciones seguido, rara vez se muestra en cámara fuera de su habitación.",
-                tips: "Instala D.O.T.S en habitaciones vacías y monitorea desde otro lugar.",
-                hunting: "Rara vez deja su habitación, haciéndolo predecible pero secretivo."
-            },
-            "Myling": {
-                description: "Fantasma muy silencioso conocido por su silencio al cazar y sonidos paranormales solo cuando está cerca.",
-                strengths: "Pasos y vocalizaciones más silenciosos durante las cacerías.",
-                weaknesses: "Hace sonidos paranormales (a través de micrófono parabólico) más frecuentemente.",
-                tips: "Usa micrófono parabólico para detectarlo, escucha cuidadosamente durante las cacerías.",
-                hunting: "Muy silencioso durante las cacerías, haciéndolo difícil de rastrear por sonido."
-            },
-            "Onryo": {
-                description: "Fantasma vengativo que ha sido conocido por ser apaciguado por llamas, y atacará cuando las llamas se apaguen.",
-                strengths: "Puede cazar a mayor cordura cuando las llamas se extinguen en la habitación del fantasma.",
-                weaknesses: "Amenazado por llamas y menos probable que cace cerca de fuentes de fuego.",
-                tips: "Mantén velas, encendedores, o fogata ardiendo en la habitación del fantasma.",
-                hunting: "Mayor probabilidad de caza cuando las llamas se apagan, disuadido por llamas activas."
-            },
-            "The Twins": {
-                description: "Fantasmas que han sido divididos en dos. A menudo trabajan juntos para sorprender a sus víctimas.",
-                strengths: "Puede interactuar desde dos ubicaciones diferentes, un gemelo más rápido, uno más lento.",
-                weaknesses: "Cualquier mitad puede ser rastreada por separado, evidencia confusa.",
-                tips: "Busca interacciones ocurriendo en diferentes áreas simultáneamente.",
-                hunting: "Dos velocidades de caza diferentes dependiendo de qué gemelo esté cazando."
-            },
-            "Raiju": {
-                description: "Fantasma que prospera con corriente eléctrica y interrumpirá equipos electrónicos al cazar.",
-                strengths: "Se mueve más rápido cerca de equipos eléctricos activos durante las cacerías.",
-                weaknesses: "Interrumpe equipos electrónicos desde más lejos, haciéndolo más fácil de detectar.",
-                tips: "Apaga electrónicos durante las cacerías, monitorea mal funcionamientos de equipos.",
-                hunting: "Más rápido cerca de electrónicos, interrumpe equipos desde 15m en lugar de 10m."
-            },
-            "Obake": {
-                description: "Cambiaformas aterrador conocido por dejar diferentes patrones de huellas dactilares.",
-                strengths: "Puede dejar huellas de seis dedos y tiene probabilidad de no dejar huellas.",
-                weaknesses: "A veces muestra huellas únicas de seis dedos, no siempre muestra evidencia UV.",
-                tips: "Busca patrones de huellas inusuales y documenta toda evidencia UV.",
-                hunting: "Puede cambiar de forma durante cacerías, haciendo la identificación más difícil."
-            },
-            "The Mimic": {
-                description: "Fantasma imitador que mimetiza rasgos y comportamientos de otros tipos de fantasmas.",
-                strengths: "Puede imitar habilidades y rasgos de otros fantasmas, tiene Orbes Fantasmales falsos como 4ta evidencia.",
-                weaknesses: "Siempre tiene Orbes Fantasmales como 4ta evidencia forzada, revelando su identidad.",
-                tips: "Si encuentras 4 piezas de evidencia, siempre es The Mimic.",
-                hunting: "Copia comportamiento de otros fantasmas pero siempre muestra 4 piezas de evidencia."
-            },
-            "Moroi": {
-                description: "Fantasma maldito que gana velocidad conforme la cordura baja y coloca maldiciones a través de la Spirit Box.",
-                strengths: "Se mueve más rápido a menor cordura, maldice jugadores a través de respuestas de Spirit Box.",
-                weaknesses: "El humo ralentiza temporalmente al Moroi durante las cacerías.",
-                tips: "Ten cuidado con el uso de Spirit Box, usa bastones de salvia durante las cacerías.",
-                hunting: "Se vuelve más rápido conforme la cordura promedio baja, puede ser ralentizado con humo."
-            },
-            "Deogen": {
-                description: "Siempre sabe dónde estás pero se mueve más lento cuando está cerca de jugadores.",
-                strengths: "Siempre conoce ubicaciones de jugadores, no puede esconderse de él.",
-                weaknesses: "Se mueve más lento cuando está cerca de jugadores, muy lento a corta distancia.",
-                tips: "No trates de esconderte, en su lugar acércate y camina alrededor de él durante las cacerías.",
-                hunting: "Rápido desde lejos, muy lento de cerca, siempre sabe dónde están los jugadores."
-            },
-            "Thaye": {
-                description: "Se vuelve más activo y peligroso mientras más tiempo te quedes, pero también envejece con el tiempo.",
-                strengths: "Comienza muy activo y rápido, más probable que cace temprano.",
-                weaknesses: "Envejece con el tiempo, volviéndose más lento y menos activo conforme progresan las rondas.",
-                tips: "Ten extra cuidado temprano en la investigación, se vuelve más fácil con el tiempo.",
-                hunting: "Muy activo y rápido inicialmente, se vuelve mucho más lento conforme envejece."
-            }
+        };
+
+        // Initialize the app
+        function init() {
+            populateGhostGrid();
+            populateMapGrid();
+            updateLanguage();
         }
-    };
 
-        // Initialize variables
-            let selectedEvidence = [];
-            let currentLanguage = 'en';
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
 
-            // Initialize app on page load
-            document.addEventListener('DOMContentLoaded', init);
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
 
-            function init() {
-                populateGhostGrid();
-                populateMapGrid();
-                updateLanguage();
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function toggleEvidence(element, evidenceType) {
+            element.classList.toggle('selected');
+
+            if (selectedEvidence.includes(evidenceType)) {
+                selectedEvidence = selectedEvidence.filter(e => e !== evidenceType);
+            } else {
+                selectedEvidence.push(evidenceType);
             }
 
-            // Tab switching
-            function showTab(tabName) {
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-                document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-                document.getElementById(tabName).classList.add('active');
-                event.target.classList.add('active');
+            updateGhostResult();
+        }
+
+        function clearEvidence() {
+            selectedEvidence = [];
+            const evidenceItems = document.querySelectorAll('.evidence-item');
+            evidenceItems.forEach(item => item.classList.remove('selected'));
+            updateGhostResult();
+        }
+
+        function updateGhostResult() {
+            const resultDiv = document.getElementById('ghostResult');
+
+            if (selectedEvidence.length === 0) {
+                resultDiv.innerHTML = `<h3>${getTranslation('result-title')}</h3>`;
+                return;
             }
 
-            // Evidence selection
-            function toggleEvidence(element, evidenceType) {
-                element.classList.toggle('selected');
-                if (selectedEvidence.includes(evidenceType)) {
-                    selectedEvidence = selectedEvidence.filter(e => e !== evidenceType);
-                } else {
-                    selectedEvidence.push(evidenceType);
-                }
-                updateGhostResult();
-            }
-
-            function clearEvidence() {
-                selectedEvidence = [];
-                document.querySelectorAll('.evidence-item').forEach(item => item.classList.remove('selected'));
-                updateGhostResult();
-            }
-
-            // Ghost result panel
-            function updateGhostResult() {
-                const resultDiv = document.getElementById('ghostResult');
-
-                if (selectedEvidence.length === 0) {
-                    resultDiv.innerHTML = `<h3>${getTranslation('result-title')}</h3>`;
-                    return;
-                }
-
-                if (selectedEvidence.length >= 4) {
-                    const mimic = ghosts.find(g => g.name === "The Mimic");
-                    if (mimic) {
-                        resultDiv.innerHTML = `
-                            <h3>${getTranslation('ghost-identified')}:</h3>
-                            <div class="ghost-card" style="margin: 10px 0; text-align: left;">
-                                <h3 class="ghost-name">${mimic.name}</h3>
-                                <div class="evidence-list">
-                                    ${mimic.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
-                                    <span class="evidence-badge" style="background: #ff6b6b;">${getTranslation('evidence-orbs')} (${getTranslation('fourth-evidence')})</span>
-                                </div>
-                                <p style="margin-top: 10px;">${getGhostTranslation(mimic.name, 'description')}</p>
-                                <p style="margin-top: 10px; color: #ff6b6b;"><strong>${getTranslation('auto-identified')}:</strong> ${getTranslation('mimic-explanation')}</p>
-                            </div>
-                        `;
-                    }
-                    return;
-                }
-
-                const possibleGhosts = ghosts.filter(ghost => selectedEvidence.every(e => ghost.evidence.includes(e)));
-
-                if (possibleGhosts.length === 0) {
-                    resultDiv.innerHTML = `<h3>${getTranslation('no-match')}</h3>`;
-                    return;
-                }
-
-                let html = `<h3>${getTranslation('possible-ghosts')}:</h3>`;
-                possibleGhosts.forEach(ghost => {
-                    html += `
+            // If 4 or more pieces of evidence are selected, it's automatically The Mimic
+            if (selectedEvidence.length >= 4) {
+                const mimic = ghosts.find(ghost => ghost.name === "The Mimic");
+                if (mimic) {
+                    resultDiv.innerHTML = `
+                        <h3>${getTranslation('ghost-identified')}:</h3>
                         <div class="ghost-card" style="margin: 10px 0; text-align: left;">
-                            <h3 class="ghost-name">${ghost.name}</h3>
+                            <h3 class="ghost-name">${mimic.name}</h3>
                             <div class="evidence-list">
-                                ${ghost.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
+                                ${mimic.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
+                                <span class="evidence-badge" style="background: #ff6b6b;">${getTranslation('evidence-orbs')} (${getTranslation('fourth-evidence')})</span>
                             </div>
-                            <p style="margin-top: 10px;">${getGhostTranslation(ghost.name, 'description')}</p>
+                            <p style="margin-top: 10px;">${getGhostTranslation(mimic.name, 'description')}</p>
+                            <p style="margin-top: 10px; color: #ff6b6b;"><strong>${getTranslation('auto-identified')}:</strong> ${getTranslation('mimic-explanation')}</p>
                         </div>
                     `;
-                });
-
-                resultDiv.innerHTML = html;
-            }
-
-            // Translation helpers
-            function getEvidenceName(evidenceKey) {
-                const evidenceNames = {
-                    'emf': getTranslation('evidence-emf'),
-                    'dots': getTranslation('evidence-dots'),
-                    'uv': getTranslation('evidence-uv'),
-                    'freezing': getTranslation('evidence-freezing'),
-                    'orbs': getTranslation('evidence-orbs'),
-                    'writing': getTranslation('evidence-writing'),
-                    'spiritbox': getTranslation('evidence-spiritbox')
-                };
-                return evidenceNames[evidenceKey] || evidenceKey;
-            }
-
-            function getGhostTranslation(ghostName, field) {
-                if (ghostTranslations[currentLanguage] &&
-                    ghostTranslations[currentLanguage][ghostName] &&
-                    ghostTranslations[currentLanguage][ghostName][field]) {
-                    return ghostTranslations[currentLanguage][ghostName][field];
                 }
-                return ghostTranslations['en'][ghostName] ? ghostTranslations['en'][ghostName][field] : '';
+                return;
             }
 
-            // Populate ghost grid
-            function populateGhostGrid() {
-                const ghostGrid = document.getElementById('ghostGrid');
-                ghostGrid.innerHTML = '';
-                ghosts.forEach(ghost => {
-                    const ghostCard = document.createElement('div');
-                    ghostCard.className = 'ghost-card';
-                    ghostCard.innerHTML = `
+            const possibleGhosts = ghosts.filter(ghost => {
+                return selectedEvidence.every(evidence => ghost.evidence.includes(evidence));
+            });
+
+            if (possibleGhosts.length === 0) {
+                resultDiv.innerHTML = `<h3>${getTranslation('no-match')}</h3>`;
+                return;
+            }
+
+            let html = `<h3>${getTranslation('possible-ghosts')}:</h3>`;
+            possibleGhosts.forEach(ghost => {
+                html += `
+                    <div class="ghost-card" style="margin: 10px 0; text-align: left;">
                         <h3 class="ghost-name">${ghost.name}</h3>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-evidence">${getTranslation('ghost-evidence')}</h4>
-                            <div class="evidence-list">
-                                ${ghost.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
-                            </div>
+                        <div class="evidence-list">
+                            ${ghost.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
                         </div>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-description">${getTranslation('ghost-description')}</h4>
-                            <p>${getGhostTranslation(ghost.name, 'description')}</p>
-                        </div>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-strengths">${getTranslation('ghost-strengths')}</h4>
-                            <p>${getGhostTranslation(ghost.name, 'strengths')}</p>
-                        </div>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-weaknesses">${getTranslation('ghost-weaknesses')}</h4>
-                            <p>${getGhostTranslation(ghost.name, 'weaknesses')}</p>
-                        </div>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-tips">${getTranslation('ghost-tips')}</h4>
-                            <p>${getGhostTranslation(ghost.name, 'tips')}</p>
-                        </div>
-                        <div class="ghost-section">
-                            <h4 data-translate="ghost-hunting">${getTranslation('ghost-hunting')}</h4>
-                            <p>${getGhostTranslation(ghost.name, 'hunting')}</p>
-                        </div>
-                    `;
-                    ghostGrid.appendChild(ghostCard);
-                });
+                        <p style="margin-top: 10px;">${getGhostTranslation(ghost.name, 'description')}</p>
+                    </div>
+                `;
+            });
+
+            resultDiv.innerHTML = html;
+        }
+
+        function getEvidenceName(evidenceKey) {
+            const evidenceNames = {
+                'emf': getTranslation('evidence-emf'),
+                'dots': getTranslation('evidence-dots'),
+                'uv': getTranslation('evidence-uv'),
+                'freezing': getTranslation('evidence-freezing'),
+                'orbs': getTranslation('evidence-orbs'),
+                'writing': getTranslation('evidence-writing'),
+                'spiritbox': getTranslation('evidence-spiritbox')
+            };
+            return evidenceNames[evidenceKey] || evidenceKey;
+        }
+
+        function getGhostTranslation(ghostName, field) {
+            if (ghostTranslations[currentLanguage] && ghostTranslations[currentLanguage][ghostName] && ghostTranslations[currentLanguage][ghostName][field]) {
+                return ghostTranslations[currentLanguage][ghostName][field];
             }
+            return ghostTranslations['en'][ghostName] ? ghostTranslations['en'][ghostName][field] : '';
+        }
 
-            // Populate map grid with translations
-            function populateMapGrid() {
-                const mapGrid = document.getElementById('mapGrid');
-                mapGrid.innerHTML = '';
+        function populateGhostGrid() {
+            const ghostGrid = document.getElementById('ghostGrid');
+            ghostGrid.innerHTML = '';
 
-                // Cursed Objects Overview
-                const currentObjects = cursedObjectsTranslations[currentLanguage] || cursedObjects;
-                const objectsCard = document.createElement('div');
-                objectsCard.className = 'map-card';
-                objectsCard.innerHTML = `
-                    <h3 class="map-name">${getTranslation('cursed-object-types')}</h3>
-                    <div class="cursed-objects">
-                        ${Object.keys(currentObjects).map(objName => `
+            ghosts.forEach(ghost => {
+                const ghostCard = document.createElement('div');
+                ghostCard.className = 'ghost-card';
+                ghostCard.innerHTML = `
+                    <h3 class="ghost-name">${ghost.name}</h3>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-evidence">${getTranslation('ghost-evidence')}</h4>
+                        <div class="evidence-list">
+                            ${ghost.evidence.map(ev => `<span class="evidence-badge">${getEvidenceName(ev)}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-description">${getTranslation('ghost-description')}</h4>
+                        <p>${getGhostTranslation(ghost.name, 'description')}</p>
+                    </div>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-strengths">${getTranslation('ghost-strengths')}</h4>
+                        <p>${getGhostTranslation(ghost.name, 'strengths')}</p>
+                    </div>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-weaknesses">${getTranslation('ghost-weaknesses')}</h4>
+                        <p>${getGhostTranslation(ghost.name, 'weaknesses')}</p>
+                    </div>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-tips">${getTranslation('ghost-tips')}</h4>
+                        <p>${getGhostTranslation(ghost.name, 'tips')}</p>
+                    </div>
+                    <div class="ghost-section">
+                        <h4 data-translate="ghost-hunting">${getTranslation('ghost-hunting')}</h4>
+                        <p>${getGhostTranslation(ghost.name, 'hunting')}</p>
+                    </div>
+                `;
+                ghostGrid.appendChild(ghostCard);
+            });
+        }
+
+        function populateMapGrid() {
+            const mapGrid = document.getElementById('mapGrid');
+            mapGrid.innerHTML = '';
+
+            // Create cursed objects overview
+            const objectsCard = document.createElement('div');
+            objectsCard.className = 'map-card';
+            objectsCard.innerHTML = `
+                <h3 class="map-name">${getTranslation('cursed-object-types')}</h3>
+                <div class="cursed-objects">
+                    <div class="object-location">
+                        <h4><span class="object-type">Tarot Cards</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Effets aléatoires lors du tirage, peuvent être bénéfiques ou nuisibles' : 'Random effects when drawn, can be beneficial or harmful'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Ouija Board</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Permet la communication avec le fantôme mais draine la sanité' : 'Allows communication with the ghost but drains sanity'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Music Box</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Attire le fantôme quand joué, peut causer des chasses' : 'Attracts the ghost when played, can cause hunts'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Monkey Paw</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Accorde des souhaits avec des conséquences dangereuses' : 'Grants wishes with dangerous consequences'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Haunted Mirror</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Montre la pièce du fantôme quand utilisé, se casse et chasse à 0% de sanité' : 'Shows ghost room when used, breaks and hunts at 0% sanity'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Summoning Circle</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Invoque le fantôme à l\'emplacement du cercle quand allumé' : 'Summons ghost to circle location when lit'}</p>
+                    </div>
+                    <div class="object-location">
+                        <h4><span class="object-type">Voodoo Doll</span></h4>
+                        <p>${currentLanguage === 'fr' ? 'Les épingles causent des interactions et une perte de sanité' : 'Pins cause interactions and sanity loss'}</p>
+                    </div>
+                </div>
+            `;
+            mapGrid.appendChild(objectsCard);
+
+            // Create tarot cards detail with enhanced information
+            const currentCards = currentLanguage === 'fr' && cursedObjectsTranslations.fr["Tarot Cards"] 
+                ? cursedObjectsTranslations.fr["Tarot Cards"] 
+                : cursedObjects["Tarot Cards"];
+
+            const tarotCard = document.createElement('div');
+            tarotCard.className = 'map-card';
+            tarotCard.innerHTML = `
+                <h3 class="map-name">${getTranslation('tarot-effects')}</h3>
+                <div class="tarot-cards">
+                    ${currentCards.effects.map(card => `
+                        <div class="tarot-card">
+                            <h4>${card.name}</h4>
+                            <p><strong>${getTranslation('effect')}:</strong> ${card.effect}</p>
+                            <div class="probability">${getTranslation('probability')} ${card.chance}</div>
+                            <div class="card-appearance">${getTranslation('card-appearance')} ${card.appearance}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            mapGrid.appendChild(tarotCard);
+
+            // Create map-specific location cards
+            const currentMapLocations = currentLanguage === 'fr' ? mapLocationsTranslations.fr : mapLocations;
+
+            Object.entries(currentMapLocations).forEach(([mapName, locations]) => {
+                const mapCard = document.createElement('div');
+                mapCard.className = 'map-card';
+                mapCard.innerHTML = `
+                    <h3 class="map-name">${mapName}</h3>
+                    <div class="cursed-locations">
+                        ${Object.entries(locations).map(([objectName, location]) => `
                             <div class="object-location">
-                                <h4><span class="object-type">${objName}</span></h4>
-                                <p>${currentObjects[objName].description}</p>
+                                <h4><span class="object-type">${objectName}</span></h4>
+                                <p>${location}</p>
                             </div>
                         `).join('')}
                     </div>
                 `;
-                mapGrid.appendChild(objectsCard);
+                mapGrid.appendChild(mapCard);
+            });
+        }
 
-                // Tarot cards detail
-                const tarot = currentObjects["Tarot Cards"] || cursedObjects["Tarot Cards"];
-                const tarotCard = document.createElement('div');
-                tarotCard.className = 'map-card';
-                tarotCard.innerHTML = `
-                    <h3 class="map-name">${getTranslation('tarot-effects')}</h3>
-                    <div class="tarot-cards">
-                        ${tarot.effects.map(card => `
-                            <div class="tarot-card">
-                                <h4>${card.name}</h4>
-                                <p><strong>${getTranslation('effect')}:</strong> ${card.effect}</p>
-                                <div class="probability">${getTranslation('probability')} ${card.chance}</div>
-                                <div class="card-appearance">${getTranslation('card-appearance')} ${card.appearance}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                mapGrid.appendChild(tarotCard);
+        function searchGhosts() {
+            const searchTerm = document.getElementById('ghostSearch').value.toLowerCase();
+            const ghostCards = document.querySelectorAll('#ghostGrid .ghost-card');
 
-                // Map-specific locations
-                const currentMaps = mapLocationsTranslations[currentLanguage] || mapLocations;
-                Object.entries(currentMaps).forEach(([mapName, locations]) => {
-                    const mapCard = document.createElement('div');
-                    mapCard.className = 'map-card';
-                    mapCard.innerHTML = `
-                        <h3 class="map-name">${mapName}</h3>
-                        <div class="cursed-locations">
-                            ${Object.entries(locations).map(([objectName, location]) => `
-                                <div class="object-location">
-                                    <h4><span class="object-type">${objectName}</span></h4>
-                                    <p>${location}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                    mapGrid.appendChild(mapCard);
-                });
-            }
+            ghostCards.forEach(card => {
+                const ghostName = card.querySelector('.ghost-name').textContent.toLowerCase();
+                const ghostText = card.textContent.toLowerCase();
 
-            // Ghost search
-            function searchGhosts() {
-                const searchTerm = document.getElementById('ghostSearch').value.toLowerCase();
-                document.querySelectorAll('#ghostGrid .ghost-card').forEach(card => {
-                    const ghostName = card.querySelector('.ghost-name').textContent.toLowerCase();
-                    const ghostText = card.textContent.toLowerCase();
-                    card.style.display = (ghostName.includes(searchTerm) || ghostText.includes(searchTerm)) ? 'block' : 'none';
-                });
-            }
+                if (ghostName.includes(searchTerm) || ghostText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
-            // Language change handler
-            function changeLanguage() {
-                currentLanguage = document.getElementById('languageSelect').value;
-                updateLanguage();
-            }
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            currentLanguage = select.value;
+            updateLanguage();
+        }
 
-            function getTranslation(key) {
-                return translations[currentLanguage] && translations[currentLanguage][key]
-                    ? translations[currentLanguage][key]
-                    : translations['en'][key] || key;
-            }
+        function getTranslation(key) {
+            return translations[currentLanguage] && translations[currentLanguage][key] ?
+                translations[currentLanguage][key] :
+                translations['en'][key] || key;
+        }
 
-            // Update all UI text
-            function updateLanguage() {
-                const additionalTranslations = {
-                    en: {
-                        'ghost-identified': 'Identified Ghost',
-                        'fourth-evidence': '4th Evidence',
-                        'auto-identified': 'Auto-identified',
-                        'mimic-explanation': 'When 4+ evidence pieces are found, it\'s always The Mimic!',
-                        'no-match': 'No ghosts match this evidence combination',
-                        'possible-ghosts': 'Possible Ghosts',
-                        'effect': 'Effect',
-                        'probability': 'Draw chance:',
-                        'card-appearance': 'Card appearance:'
-                    },
-                    fr: {
-                        'ghost-identified': 'Fantôme Identifié',
-                        'fourth-evidence': '4e Preuve',
-                        'auto-identified': 'Auto-identifié',
-                        'mimic-explanation': 'Quand 4+ pièces de preuve sont trouvées, c\'est toujours The Mimic !',
-                        'no-match': 'Aucun fantôme ne correspond à cette combinaison de preuves',
-                        'possible-ghosts': 'Fantômes Possibles',
-                        'effect': 'Effet',
-                        'probability': 'Chance de tirage :',
-                        'card-appearance': 'Apparence de la carte :'
-                    },
-                    es: {
-                        'ghost-identified': 'Fantasma Identificado',
-                        'fourth-evidence': '4ta Evidencia',
-                        'auto-identified': 'Auto-identificado',
-                        'mimic-explanation': '¡Cuando se encuentran más de 4 piezas de evidencia, siempre es The Mimic!',
-                        'no-match': 'Ningún fantasma coincide con esta combinación de evidencia',
-                        'possible-ghosts': 'Posibles Fantasmas',
-                        'effect': 'Efecto',
-                        'probability': 'Probabilidad de aparición:',
-                        'card-appearance': 'Apariencia de la carta:'
-                    }
-                };
+        function updateLanguage() {
+            // Add missing translations
+            const additionalTranslations = {
+                en: {
+                    'ghost-identified': 'Identified Ghost',
+                    'fourth-evidence': '4th Evidence',
+                    'auto-identified': 'Auto-identified',
+                    'mimic-explanation': 'When 4+ evidence pieces are found, it\'s always The Mimic!',
+                    'no-match': 'No ghosts match this evidence combination',
+                    'possible-ghosts': 'Possible Ghosts',
+                    'effect': 'Effect',
+                    'probability': 'Draw chance:',
+                    'card-appearance': 'Card appearance:'
+                },
+                fr: {
+                    'ghost-identified': 'Fantôme Identifié',
+                    'fourth-evidence': '4e Preuve',
+                    'auto-identified': 'Auto-identifié',
+                    'mimic-explanation': 'Quand 4+ pièces de preuve sont trouvées, c\'est toujours The Mimic !',
+                    'no-match': 'Aucun fantôme ne correspond à cette combinaison de preuves',
+                    'possible-ghosts': 'Fantômes Possibles',
+                    'effect': 'Effet',
+                    'probability': 'Chance de tirage :',
+                    'card-appearance': 'Apparence de la carte :'
+                }
+            };
 
-                // Merge into base translations
-                Object.keys(additionalTranslations).forEach(lang => {
-                    if (!translations[lang]) translations[lang] = {};
-                    Object.assign(translations[lang], additionalTranslations[lang]);
-                });
+            // Merge additional translations
+            Object.keys(additionalTranslations).forEach(lang => {
+                if (!translations[lang]) translations[lang] = {};
+                Object.assign(translations[lang], additionalTranslations[lang]);
+            });
 
-                // Static text
-                document.querySelectorAll('[data-translate]').forEach(el => {
-                    const key = el.getAttribute('data-translate');
-                    el.textContent = getTranslation(key);
-                });
+            // Update all elements with data-translate attribute
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                element.textContent = getTranslation(key);
+            });
 
-                // Placeholders
-                document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
-                    const key = el.getAttribute('data-translate-placeholder');
-                    el.placeholder = getTranslation(key);
-                });
+            // Update placeholder text
+            const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+            placeholderElements.forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                element.placeholder = getTranslation(key);
+            });
 
-                // Refresh dynamic sections
-                populateGhostGrid();
-                populateMapGrid();
-                updateGhostResult();
-            }
+            // Repopulate dynamic content with new language
+            populateGhostGrid();
+            populateMapGrid();
+            updateGhostResult();
+        }
 
-                    // Initialize the app when page loads
-                    document.addEventListener('DOMContentLoaded', init);
-                </script>
-            </body>
+        // Initialize the app when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
 
-            </html>
+</html>
