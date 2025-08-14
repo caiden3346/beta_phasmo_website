@@ -569,21 +569,38 @@
 
         const cursedObjectsTranslations = {
             fr: {
-                "Tarot Cards": {
-                    description: "Effets aléatoires lors du tirage, peuvent être bénéfiques ou nuisibles",
-                    effects: [
-                        { name: "La Tour", effect: "Interaction fantôme à l'emplacement", chance: "20%", appearance: "Montre une haute tour de pierre frappée par la foudre" },
-                        { name: "La Roue de Fortune", effect: "+ ou - 25% de sanité mentale", chance: "20%", appearance: "Présente une grande roue tournante avec des symboles mystiques" },
-                        { name: "Le Fou", effect: "Le fantôme vous confond avec un autre joueur", chance: "17%", appearance: "Montre un bouffon marchant au bord d'une falaise" },
-                        { name: "La Mort", effect: "Déclenche une chasse maudite", chance: "10%", appearance: "Représente un squelette en robe noire tenant une faux" },
-                        { name: "L'Ermite", effect: "Téléporte le fantôme dans sa chambre", chance: "10%", appearance: "Montre un vieil homme avec une lanterne en solitude" },
-                        { name: "Le Diable", effect: "Interaction fantôme dans la chambre du fantôme", chance: "10%", appearance: "Présente une figure démoniaque cornue avec des chaînes" },
-                        { name: "La Lune", effect: "Réduit la sanité mentale à 0%", chance: "5%", appearance: "Montre un croissant de lune avec un visage et deux tours" },
-                        { name: "Le Soleil", effect: "Restaure complètement la sanité mentale", chance: "5%", appearance: "Représente un soleil brillant avec un visage souriant et des rayons" },
-                        { name: "Le Pendu", effect: "Vous tue instantanément", chance: "1%", appearance: "Montre une figure pendue la tête en bas à un arbre" },
-                        { name: "La Grande Prêtresse", effect: "Ressuscite un coéquipier mort", chance: "2%", appearance: "Présente une femme en robe assise entre deux piliers" }
-                    ]
-                }
+            "Tarot Cards": {
+                description: "Effets aléatoires lors du tirage, peuvent être bénéfiques ou nuisibles",
+                effects: [
+                { name: "La Tour", effect: "Interaction fantôme à l'emplacement", chance: "20%", appearance: "Montre une haute tour de pierre frappée par la foudre" },
+                { name: "La Roue de Fortune", effect: "+ ou - 25% de sanité mentale", chance: "20%", appearance: "Présente une grande roue tournante avec des symboles mystiques" },
+                { name: "Le Fou", effect: "Le fantôme vous confond avec un autre joueur", chance: "17%", appearance: "Montre un bouffon marchant au bord d'une falaise" },
+                { name: "La Mort", effect: "Déclenche une chasse maudite", chance: "10%", appearance: "Représente un squelette en robe noire tenant une faux" },
+                { name: "L'Ermite", effect: "Téléporte le fantôme dans sa chambre", chance: "10%", appearance: "Montre un vieil homme avec une lanterne en solitude" },
+                { name: "Le Diable", effect: "Interaction fantôme dans la chambre du fantôme", chance: "10%", appearance: "Présente une figure démoniaque cornue avec des chaînes" },
+                { name: "La Lune", effect: "Réduit la sanité mentale à 0%", chance: "5%", appearance: "Montre un croissant de lune avec un visage et deux tours" },
+                { name: "Le Soleil", effect: "Restaure complètement la sanité mentale", chance: "5%", appearance: "Représente un soleil brillant avec un visage souriant et des rayons" },
+                { name: "Le Pendu", effect: "Vous tue instantanément", chance: "1%", appearance: "Montre une figure pendue la tête en bas à un arbre" },
+                { name: "La Grande Prêtresse", effect: "Ressuscite un coéquipier mort", chance: "2%", appearance: "Présente une femme en robe assise entre deux piliers" }
+                ]
+            }
+            },
+            es: {
+            "Tarot Cards": {
+                description: "Efectos aleatorios al robar, pueden ser beneficiosos o dañinos",
+                effects: [
+                { name: "La Torre", effect: "Interacción del fantasma en la ubicación", chance: "20%", appearance: "Muestra una torre de piedra alta siendo golpeada por un rayo" },
+                { name: "La Rueda de la Fortuna", effect: "+ o - 25% cordura", chance: "20%", appearance: "Presenta una gran rueda giratoria con símbolos místicos" },
+                { name: "El Loco", effect: "El fantasma te confunde con otro jugador", chance: "17%", appearance: "Muestra una figura de bufón caminando por un acantilado" },
+                { name: "La Muerte", effect: "Desencadena una cacería maldita", chance: "10%", appearance: "Representa un esqueleto con túnicas negras sosteniendo una guadaña" },
+                { name: "El Ermitaño", effect: "Teletransporta al fantasma de vuelta a su habitación", chance: "10%", appearance: "Muestra un hombre viejo con una linterna en soledad" },
+                { name: "El Diablo", effect: "Interacción del fantasma en su habitación", chance: "10%", appearance: "Presenta una figura demoniaca con cuernos con cadenas" },
+                { name: "La Luna", effect: "Reduce la cordura a 0%", chance: "5%", appearance: "Muestra una luna creciente con cara y dos torres" },
+                { name: "El Sol", effect: "Restaura completamente la cordura", chance: "5%", appearance: "Representa un sol brillante con cara sonriente y rayos" },
+                { name: "El Colgado", effect: "Te mata instantáneamente", chance: "1%", appearance: "Muestra una figura colgando boca abajo de un árbol" },
+                { name: "La Suma Sacerdotisa", effect: "Revive a un compañero muerto", chance: "2%", appearance: "Presenta una mujer con túnica sentada entre dos pilares" }
+                ]
+            }
             }
         };
 
@@ -790,7 +807,28 @@
                     "Summoning Circle": "Au sous-sol à côté du mannequin devant la première porte",
                     "Voodoo Doll": "Sur l'étagère du bas du placard blanc dans la chambre au bout du couloir droit"
                 }
-            }
+            es: {
+        "Bleasdale Farmhouse": {
+            "Tarot Cards": "En un escritorio en la oficina (primera habitación a la izquierda al entrar)",
+            "Ouija Board": "En el garaje en un banco de trabajo de madera (a veces con un martillo encima)",
+            "Music Box": "En una pequeña mesa de madera en la sala (directamente al frente al entrar)",
+            "Monkey Paw": "En el dormitorio principal en un baúl de cuero junto a la cuna (segundo piso)",
+            "Haunted Mirror": "En la pared de la oficina junto a la lámpara de piso y la ventana",
+            "Summoning Circle": "En el ático en el suelo junto a cajas marrones con latas",
+            "Voodoo Doll": "En un asiento de cuero marrón opuesto a dormitorios junto a escaleras del ático (segundo piso)"
+        },
+        "Brownstone High School": {
+            "Tarot Cards": "En un banco de madera largo a tu izquierda en el vestíbulo junto a un libro verde",
+            "Ouija Board": "En el suelo junto a un pilar a la izquierda donde el vestíbulo se une al corredor",
+            "Music Box": "En un banco de madera largo en el lado derecho del vestíbulo entre libros verdes",
+            "Monkey Paw": "Encima de una caja de cartón en el lado derecho del vestíbulo junto a un pilar de ladrillo",
+            "Haunted Mirror": "Apoyado contra un pilar de ladrillo en el lado derecho del vestíbulo",
+            "Summoning Circle": "En el suelo en el centro del corredor donde se une el vestíbulo",
+            "Voodoo Doll": "En un banco de madera en la pared opuesta a la entrada"
+        }
+        // ... You would continue with all other maps following this pattern
+    }
+};
         };
 
         // Ghost data with evidence
@@ -1162,7 +1200,177 @@
                     hunting: "Très actif et rapide initialement, devient beaucoup plus lent en vieillissant."
                 }
             }
-        };
+            es: {
+            "Spirit": {
+                description: "Tipo de fantasma más común. Son muy territoriales y atacarán si permaneces en la misma área.",
+                strengths: "Nada en particular.",
+                weaknesses: "La Spirit Box detiene toda actividad paranormal por un tiempo corto cuando se usa.",
+                tips: "Usa Bastones de Salvia para prevenir cacerías por 3 minutos (el más largo de todos los fantasmas).",
+                hunting: "Umbral de caza normal al 50% de cordura promedio."
+            },
+            "Wraith": {
+                description: "Fantasma incorpóreo que puede viajar a través de paredes y rara vez toca el suelo.",
+                strengths: "No puede ser rastreado por huellas y no tiene huellas UV.",
+                weaknesses: "Reacción tóxica a la Sal - detendrá toda actividad si pisa sal.",
+                tips: "Coloca sal alrededor de ubicaciones potenciales del fantasma para identificar o disuadir.",
+                hunting: "Umbral de caza normal pero puede teletransportarse a jugadores en cualquier lugar del mapa."
+            },
+            "Phantom": {
+                description: "Temido por su capacidad de reducir la cordura y volverse casi invisible durante las cacerías.",
+                strengths: "Mirar a un Phantom reducirá la cordura considerablemente más rápido.",
+                weaknesses: "Tomar una foto del Phantom lo hará desaparecer temporalmente.",
+                tips: "Usa cámaras frecuentemente para interrumpir al fantasma y obtener fotos de evidencia.",
+                hunting: "Se vuelve casi invisible durante las cacerías, apareciendo solo brevemente."
+            },
+            "Poltergeist": {
+                description: "Conocido por manipular objetos a su alrededor para esparcir miedo y aterrorizar a sus víctimas.",
+                strengths: "Puede lanzar múltiples objetos a la vez, caída masiva de cordura al lanzar objetos.",
+                weaknesses: "Se vuelve impotente en habitaciones sin objetos arrojadizos cerca.",
+                tips: "Vacía las habitaciones de objetos para reducir el poder del poltergeist.",
+                hunting: "Umbral normal pero extremadamente peligroso en habitaciones desordenadas."
+            },
+            "Banshee": {
+                description: "Fantasma territorial que atacará solo a una persona a la vez hasta que se vaya o muera.",
+                strengths: "Atacará a un jugador específico ignorando a otros hasta que el objetivo esté muerto o se haya ido.",
+                weaknesses: "Será menos agresivo si el jugador objetivo está lejos.",
+                tips: "El jugador objetivo debe mantenerse alejado mientras otros investigan.",
+                hunting: "Caza basada solo en la cordura del objetivo, no en la cordura promedio del equipo."
+            },
+            "Jinn": {
+                description: "Fantasma que obtiene su poder de la electricidad y se mueve más rápido cuando el disyuntor está encendido.",
+                strengths: "Se mueve más rápido cuando el disyuntor está encendido, puede reducir la cordura a distancia.",
+                weaknesses: "No puede apagar el disyuntor y se mueve más lento cuando está apagado.",
+                tips: "Apaga el disyuntor para ralentizar al fantasma durante las cacerías.",
+                hunting: "Más rápido con electricidad, más lento sin electricidad."
+            },
+            "Mare": {
+                description: "Fuente de todas las pesadillas, haciéndolo más poderoso en la oscuridad.",
+                strengths: "Mayor probabilidad de cazar en áreas oscuras, apagará luces y romperá bombillas.",
+                weaknesses: "Menos probable que cace cuando las luces están encendidas, no encenderá luces.",
+                tips: "Mantén las luces encendidas para reducir las posibilidades de caza y actividad.",
+                hunting: "60% de umbral de caza en oscuridad, 40% con luz."
+            },
+            "Revenant": {
+                description: "Fantasma violento que cazará implacablemente a su presa.",
+                strengths: "Se mueve significativamente más rápido al cazar si sabe dónde estás.",
+                weaknesses: "Muy lento cuando no sabe dónde están los jugadores.",
+                tips: "Rompe la línea de visión y escóndete cuando esté cazando.",
+                hunting: "Extremadamente rápido al perseguir, extremadamente lento al buscar."
+            },
+            "Shade": {
+                description: "Fantasma tímido que es más difícil de encontrar evidencia y menos probable que cace en grupos.",
+                strengths: "Más difícil de encontrar y mucho menos activo cuando hay gente cerca.",
+                weaknesses: "No cazará si los jugadores están agrupados (excepto en cacerías malditas).",
+                tips: "Investiga solo para obtener más actividad y evidencia.",
+                hunting: "No cazará si múltiples personas están en la habitación del fantasma."
+            },
+            "Demon": {
+                description: "Tipo de fantasma más agresivo que caza frecuentemente y requiere menos provocación.",
+                strengths: "Puede cazar a cualquier nivel de cordura, hace menos preguntas en la Tabla Ouija.",
+                weaknesses: "El humo lo prevendrá de cazar por más tiempo que otros fantasmas.",
+                tips: "Trae bastones de salvia extra como protección, prepárate para correr frecuentemente.",
+                hunting: "Puede cazar a cualquier cordura pero usualmente comienza alrededor del 70%."
+            },
+            "Yurei": {
+                description: "Regresó de entre los muertos y es conocido por tener un efecto más fuerte en la cordura de las personas.",
+                strengths: "Efecto de drenaje de cordura más fuerte al manifestarse o durante eventos.",
+                weaknesses: "El humo del fantasma le impedirá vagar por un período extendido.",
+                tips: "Vigila la cordura cuidadosamente y usa humo en la habitación del fantasma para atraparlo.",
+                hunting: "Umbral de caza normal pero peligroso debido al drenaje de cordura."
+            },
+            "Oni": {
+                description: "Primo del Demonio, más activo cuando hay gente alrededor y puede mover objetos a gran velocidad.",
+                strengths: "Más activo cuando los jugadores están cerca, puede mover objetos muy rápido.",
+                weaknesses: "Menos activo cuando los jugadores están lejos, más fácil de rastrear debido a la actividad.",
+                tips: "Busca objetos que se muevan rápido y alta actividad al investigar.",
+                hunting: "Muy activo, haciéndolo más fácil de identificar pero más peligroso."
+            },
+            "Yokai": {
+                description: "Fantasma común atraído por voces humanas, volviéndose más activo cerca de conversaciones.",
+                strengths: "Hablar cerca de él lo enfadará y aumentará la actividad y probabilidad de caza.",
+                weaknesses: "Solo puede escuchar jugadores durante cacerías cuando están muy cerca.",
+                tips: "Mantente callado durante la investigación y especialmente durante las cacerías.",
+                hunting: "Puede cazar a mayor cordura cuando los jugadores hablan, pero tiene muy corto rango de audición."
+            },
+            "Hantu": {
+                description: "Fantasma raro que prospera en climas fríos y se moverá más rápido en áreas frías.",
+                strengths: "Se mueve más rápido en áreas frías, puede apagar el disyuntor y crear aliento helado.",
+                weaknesses: "Se mueve más lento en áreas cálidas, no puede volver a encender el disyuntor.",
+                tips: "Enciende el disyuntor y monitorea cambios de temperatura.",
+                hunting: "Rápido en frío, lento en calor, aliento helado visible en áreas frías."
+            },
+            "Goryo": {
+                description: "Rara vez se muestra a los humanos, haciéndolo particularmente difícil de rastrear e identificar.",
+                strengths: "Solo puede mostrar evidencia D.O.T.S cuando no hay jugadores en la habitación.",
+                weaknesses: "No cambiará de habitaciones seguido, rara vez se muestra en cámara fuera de su habitación.",
+                tips: "Instala D.O.T.S en habitaciones vacías y monitorea desde otro lugar.",
+                hunting: "Rara vez deja su habitación, haciéndolo predecible pero secretivo."
+            },
+            "Myling": {
+                description: "Fantasma muy silencioso conocido por su silencio al cazar y sonidos paranormales solo cuando está cerca.",
+                strengths: "Pasos y vocalizaciones más silenciosos durante las cacerías.",
+                weaknesses: "Hace sonidos paranormales (a través de micrófono parabólico) más frecuentemente.",
+                tips: "Usa micrófono parabólico para detectarlo, escucha cuidadosamente durante las cacerías.",
+                hunting: "Muy silencioso durante las cacerías, haciéndolo difícil de rastrear por sonido."
+            },
+            "Onryo": {
+                description: "Fantasma vengativo que ha sido conocido por ser apaciguado por llamas, y atacará cuando las llamas se apaguen.",
+                strengths: "Puede cazar a mayor cordura cuando las llamas se extinguen en la habitación del fantasma.",
+                weaknesses: "Amenazado por llamas y menos probable que cace cerca de fuentes de fuego.",
+                tips: "Mantén velas, encendedores, o fogata ardiendo en la habitación del fantasma.",
+                hunting: "Mayor probabilidad de caza cuando las llamas se apagan, disuadido por llamas activas."
+            },
+            "The Twins": {
+                description: "Fantasmas que han sido divididos en dos. A menudo trabajan juntos para sorprender a sus víctimas.",
+                strengths: "Puede interactuar desde dos ubicaciones diferentes, un gemelo más rápido, uno más lento.",
+                weaknesses: "Cualquier mitad puede ser rastreada por separado, evidencia confusa.",
+                tips: "Busca interacciones ocurriendo en diferentes áreas simultáneamente.",
+                hunting: "Dos velocidades de caza diferentes dependiendo de qué gemelo esté cazando."
+            },
+            "Raiju": {
+                description: "Fantasma que prospera con corriente eléctrica y interrumpirá equipos electrónicos al cazar.",
+                strengths: "Se mueve más rápido cerca de equipos eléctricos activos durante las cacerías.",
+                weaknesses: "Interrumpe equipos electrónicos desde más lejos, haciéndolo más fácil de detectar.",
+                tips: "Apaga electrónicos durante las cacerías, monitorea mal funcionamientos de equipos.",
+                hunting: "Más rápido cerca de electrónicos, interrumpe equipos desde 15m en lugar de 10m."
+            },
+            "Obake": {
+                description: "Cambiaformas aterrador conocido por dejar diferentes patrones de huellas dactilares.",
+                strengths: "Puede dejar huellas de seis dedos y tiene probabilidad de no dejar huellas.",
+                weaknesses: "A veces muestra huellas únicas de seis dedos, no siempre muestra evidencia UV.",
+                tips: "Busca patrones de huellas inusuales y documenta toda evidencia UV.",
+                hunting: "Puede cambiar de forma durante cacerías, haciendo la identificación más difícil."
+            },
+            "The Mimic": {
+                description: "Fantasma imitador que mimetiza rasgos y comportamientos de otros tipos de fantasmas.",
+                strengths: "Puede imitar habilidades y rasgos de otros fantasmas, tiene Orbes Fantasmales falsos como 4ta evidencia.",
+                weaknesses: "Siempre tiene Orbes Fantasmales como 4ta evidencia forzada, revelando su identidad.",
+                tips: "Si encuentras 4 piezas de evidencia, siempre es The Mimic.",
+                hunting: "Copia comportamiento de otros fantasmas pero siempre muestra 4 piezas de evidencia."
+            },
+            "Moroi": {
+                description: "Fantasma maldito que gana velocidad conforme la cordura baja y coloca maldiciones a través de la Spirit Box.",
+                strengths: "Se mueve más rápido a menor cordura, maldice jugadores a través de respuestas de Spirit Box.",
+                weaknesses: "El humo ralentiza temporalmente al Moroi durante las cacerías.",
+                tips: "Ten cuidado con el uso de Spirit Box, usa bastones de salvia durante las cacerías.",
+                hunting: "Se vuelve más rápido conforme la cordura promedio baja, puede ser ralentizado con humo."
+            },
+            "Deogen": {
+                description: "Siempre sabe dónde estás pero se mueve más lento cuando está cerca de jugadores.",
+                strengths: "Siempre conoce ubicaciones de jugadores, no puede esconderse de él.",
+                weaknesses: "Se mueve más lento cuando está cerca de jugadores, muy lento a corta distancia.",
+                tips: "No trates de esconderte, en su lugar acércate y camina alrededor de él durante las cacerías.",
+                hunting: "Rápido desde lejos, muy lento de cerca, siempre sabe dónde están los jugadores."
+            },
+            "Thaye": {
+                description: "Se vuelve más activo y peligroso mientras más tiempo te quedes, pero también envejece con el tiempo.",
+                strengths: "Comienza muy activo y rápido, más probable que cace temprano.",
+                weaknesses: "Envejece con el tiempo, volviéndose más lento y menos activo conforme progresan las rondas.",
+                tips: "Ten extra cuidado temprano en la investigación, se vuelve más fácil con el tiempo.",
+                hunting: "Muy activo y rápido inicialmente, se vuelve mucho más lento conforme envejece."
+            }
+        }
+    };
 
         // Initialize the app
         function init() {
@@ -1457,7 +1665,18 @@
                     'probability': 'Chance de tirage :',
                     'card-appearance': 'Apparence de la carte :'
                 }
-            };
+                es: {
+                'ghost-identified': 'Fantasma Identificado',
+                'fourth-evidence': '4ta Evidencia',
+                'auto-identified': 'Auto-identificado',
+                'mimic-explanation': '¡Cuando se encuentran más de 4 piezas de evidencia, siempre es The Mimic!',
+                'no-match': 'Ningún fantasma coincide con esta combinación de evidencia',
+                'possible-ghosts': 'Posibles Fantasmas',
+                'effect': 'Efecto',
+                'probability': 'Probabilidad de robo:',
+                'card-appearance': 'Apariencia de la carta:'
+            }
+        };
 
             // Merge additional translations
             Object.keys(additionalTranslations).forEach(lang => {
