@@ -591,12 +591,12 @@
             "Tanglewood Street House": {
                 image: "/maps/tanglewood.png",
                 cursedObjects: [
-                    { type: "Tarot Cards", locations: ["Living Room table", "Kitchen counter", "Master bedroom dresser"] },
-                    { type: "Ouija Board", locations: ["Living room", "Master bedroom", "Basement"] },
-                    { type: "Music Box", locations: ["Living room shelf", "Kitchen", "Garage"] },
-                    { type: "Voodoo Doll", locations: ["Living room", "Master bedroom", "Boys bedroom"] },
-                    { type: "Haunted Mirror", locations: ["Bathroom", "Master bedroom", "Hallway"] },
-                    { type: "Summoning Circle", locations: ["Garage", "Living room", "Master bedroom"] }
+                    { type: "Tarot Cards", locations: ["Living Room table"] },
+                    { type: "Ouija Board", locations: ["Basement"] },
+                    { type: "Music Box", locations: ["Nursery room shelf"] },
+                    { type: "Voodoo Doll", locations: ["Garage"] },
+                    { type: "Haunted Mirror", locations: ["Hallway"] },
+                    { type: "Summoning Circle", locations: ["Basement"] }
                 ]
             },
             "Edgefield Street House": {
@@ -904,7 +904,7 @@
                         <div style="margin-bottom: 20px; background: #2a2a2a; padding: 15px; border-radius: 8px;">
                             <h4 style="color: #4CAF50; margin-bottom: 10px;">${obj.type}</h4>
                             <div style="color: #bbb;">
-                                <strong>Possible Locations:</strong>
+                                <strong>Location:</strong>
                                 <ul style="margin-top: 5px; margin-left: 20px;">
                                     ${obj.locations.map(location => `<li>${location}</li>`).join('')}
                                 </ul>
