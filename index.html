@@ -93,6 +93,27 @@
         .tab-content.active {
             display: block;
         }
+          
+        .events-btn {
+            background: #1a1a2e;
+            color: #fff;
+            border: 2px solid #16213e;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .events-btn:hover {
+            background: #16213e;
+            box-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+            border-color: #64c8ff;
+
+        }
 
         .evidence-selector {
             background: #1a1a1a;
@@ -890,12 +911,10 @@
                 return;
             }
 
-            // Find matching ghosts
             let matchingGhosts = [];
             
-            // Check if selected evidence has 4 pieces or doesn't match any ghost exactly
             let exactMatches = Object.keys(ghosts).filter(ghostName => {
-                if (ghostName === 'The Mimic') return false; // Skip mimic for exact matching
+                if (ghostName === 'The Mimic') return false;
                 
                 const ghostEvidence = ghosts[ghostName].evidence;
                 return selectedEvidence.length === ghostEvidence.length && 
@@ -903,11 +922,9 @@
                        ghostEvidence.every(ev => selectedEvidence.includes(ev));
             });
 
-            // If 4 evidence selected or no exact matches found with 3 evidence, it's The Mimic
             if (selectedEvidence.length >= 4 || (selectedEvidence.length === 3 && exactMatches.length === 0)) {
                 matchingGhosts = ['The Mimic'];
             } else {
-                // Find ghosts that could match with the current evidence
                 matchingGhosts = Object.keys(ghosts).filter(ghostName => {
                     if (ghostName === 'The Mimic') return false;
                     
@@ -925,9 +942,7 @@
                 <div class="possible-ghosts-grid">
                     ${matchingGhosts.map(ghostName => `
                         <div class="ghost-card" onclick="showGhostDetails('${ghostName}')">
-                            <div class="ghost-icon">
-                                <img src="${ghosts[ghostName].icon}" alt="${ghostName}" onerror="this.style.display='none'; this.parentNode.innerHTML='👻';">
-                            </div>
+                            <div class="ghost-icon">${ghosts[ghostName].icon}</div>
                             <div class="ghost-name">${ghostName}</div>
                             <div class="evidence-list">
                                 ${ghosts[ghostName].evidence.map(ev => `
