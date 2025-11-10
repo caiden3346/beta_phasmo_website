@@ -1,0 +1,603 @@
+const ghosts = {
+            "Spirit": {
+                evidence: ["emf", "spiritbox", "writing"],
+                strength: "Nothing notable",
+                weakness: "Using Smudge Sticks on a Spirit will stop it from hunting for a long period of time",
+                tips: "Very common ghost type. Look for basic evidence combinations.",
+                icon: "/icons/spirit.png"
+            },
+            "Wraith": {
+                evidence: ["emf", "spiritbox", "dots"],
+                strength: "Wraiths almost never touch the ground, meaning it will rarely leave a footstep or footprint",
+                weakness: "Wraiths have a toxic reaction to Salt. If a Wraith comes into contact with a pile of salt, it will immediately become more active",
+                tips: "Use salt to identify - they become very aggressive when touching it.",
+                icon: "/icons/wraith.png"
+            },
+            "Phantom": {
+                evidence: ["spiritbox", "fingerprints", "dots"],
+                strength: "Looking at a Phantom will considerably drop your Sanity",
+                weakness: "Taking a photo of the Phantom will make it temporarily disappear",
+                tips: "Take photos when you see it to make it disappear temporarily.",
+                icon: "/icons/phantom.png"
+            },
+            "Poltergeist": {
+                evidence: ["spiritbox", "fingerprints", "writing"],
+                strength: "Poltergeists can throw multiple objects at once, and with great force",
+                weakness: "Poltergeists are ineffective in empty rooms with no throwable objects",
+                tips: "Clear rooms of objects to reduce its power.",
+                icon: "/icons/poltergeist.png"
+            },
+            "Banshee": {
+                evidence: ["fingerprints", "orbs", "dots"],
+                strength: "Banshees will focus on one person at a time until they are dead or leave the area",
+                weakness: "Banshees fear the Crucifix and will be less aggressive when near one",
+                tips: "It targets one player specifically. Use crucifixes for protection.",
+                icon: "/icons/banshee.png"
+            },
+            "Jinn": {
+                evidence: ["emf", "fingerprints", "freezing"],
+                strength: "Jinns travel at a faster speed if their victim is far from them",
+                weakness: "Turning off the location's power source will prevent Jinns from using their ability",
+                tips: "Turn off the power to limit its abilities.",
+                icon: "/icons/jinn.png"
+            },
+            "Mare": {
+                evidence: ["spiritbox", "orbs", "writing"],
+                strength: "Mares will have an increased chance to attack in the dark",
+                weakness: "Mares are less likely to attack if the lights in the room are on",
+                tips: "Keep lights on to reduce its aggression.",
+                icon: "/icons/mare.png"
+            },
+            "Revenant": {
+                evidence: ["orbs", "writing", "freezing"],
+                strength: "Revenants will travel at a significantly faster speed when hunting their victim",
+                weakness: "Hiding from the Revenant will cause it to move very slowly",
+                tips: "Hide when it's hunting - it moves much slower when it can't see you.",
+                icon: "/icons/revenant.png"
+            },
+            "Shade": {
+                evidence: ["emf", "writing", "freezing"],
+                strength: "Shades are much harder to find",
+                weakness: "Shades will rarely hunt if there are multiple people nearby",
+                tips: "Send in team members alone to increase activity.",
+                icon: "/icons/shade.png"
+            },
+            "Demon": {
+                evidence: ["fingerprints", "writing", "freezing"],
+                strength: "Demons will initiate hunts more often than other ghosts",
+                weakness: "Demons fear Crucifixes and will be less aggressive when near them",
+                tips: "Very aggressive hunter. Keep crucifixes nearby.",
+                icon: "/icons/demon.png"
+            },
+            "Yurei": {
+                evidence: ["orbs", "freezing", "dots"],
+                strength: "Yurei have been known to have a stronger effect on people's sanity",
+                weakness: "Smudging the Yurei's place of death will trap it temporarily, reducing how much it wanders",
+                tips: "Smudge its room to contain it temporarily.",
+                icon: "/icons/yurei.png"
+            },
+            "Oni": {
+                evidence: ["emf", "freezing", "dots"],
+                strength: "Onis are more active when people are nearby and can move objects at great speed",
+                weakness: "Onis are very active, making them easier to find",
+                tips: "Very active ghost - easy to find but dangerous.",
+                icon: "/icons/oni.png"
+            },
+            "Hantu": {
+                evidence: ["fingerprints", "orbs", "freezing"],
+                strength: "Hantus move faster in colder areas and slower in warmer areas",
+                weakness: "Hantus move slower in warmer areas and will not speed up in cold areas if the fuse box is off",
+                tips: "Turn off breaker in cold areas to slow it down.",
+                icon: "/icons/hantu.png"
+            },
+            "Yokai": {
+                evidence: ["spiritbox", "orbs", "dots"],
+                strength: "Yokai get angrier around active electronics",
+                weakness: "Yokai can only hear voices close to it during a hunt",
+                tips: "Stay quiet during hunts - it has limited hearing range.",
+                icon: "/icons/yokai.png"
+            },
+            "Goryo": {
+                evidence: ["emf", "fingerprints", "dots"],
+                strength: "Goryos will only show themselves on camera if there are no people nearby",
+                weakness: "Goryos are rarely seen far from their place of death",
+                tips: "Look for DOTS evidence when no one is in the room.",
+                icon: "/icons/goryo.png"
+            },
+            "Myling": {
+                evidence: ["emf", "fingerprints", "writing"],
+                strength: "Mylings are known to be quieter when hunting",
+                weakness: "Mylings make more noise on the Parabolic Microphone",
+                tips: "Use parabolic microphone - they're louder on it but quieter when hunting.",
+                icon: "/icons/myling.png"
+            },
+            "Onryo": {
+                evidence: ["spiritbox", "orbs", "freezing"],
+                strength: "When threatened, Onryos will attack without warning",
+                weakness: "Onryos fear any form of fire, and will be less aggressive near campfires, torches, etc.",
+                tips: "Use candles and fire sources to calm it down.",
+                icon: "/icons/onryo.png"
+            },
+            "The Twins": {
+                evidence: ["emf", "spiritbox", "freezing"],
+                strength: "Either Twin can be angered and initiate an attack on their prey",
+                weakness: "The Twins will often interact with the environment at the same time",
+                tips: "Look for simultaneous interactions in different areas.",
+                icon: "/icons/twins.png"
+            },
+            "Raiju": {
+                evidence: ["emf", "orbs", "dots"],
+                strength: "Raiju are constantly disrupting electronic equipment, making it malfunction more often",
+                weakness: "Raiju move faster near active electronic equipment",
+                tips: "Turn off electronics to slow it down during hunts.",
+                icon: "/icons/raiju.png"
+            },
+            "Obake": {
+                evidence: ["emf", "fingerprints", "orbs"],
+                strength: "Obake will rarely leave a trace when interacting with the environment",
+                weakness: "Sometimes Obake will shapeshift, leaving behind unique evidence",
+                tips: "Look for 6-fingered handprints as unique evidence.",
+                icon: "/icons/obake.png"
+            },
+            "The Mimic": {
+                evidence: ["spiritbox", "fingerprints", "freezing", "orbs"],
+                strength: "The Mimic will copy the traits and behaviours of other ghosts",
+                weakness: "The Mimic will always have Ghost Orbs as evidence",
+                tips: "Always shows Ghost Orbs. Appears when you have 4+ evidence or no matching ghost.",
+                icon: "/icons/mimic.png"
+            },
+            "Moroi": {
+                evidence: ["spiritbox", "writing", "freezing"],
+                strength: "Moroi move faster when players have low sanity",
+                weakness: "Moroi suffer from hyperosmia, weakening them near smudged areas",
+                tips: "Keep sanity high and use smudge sticks in the room.",
+                icon: "/icons/moroi.png"
+            },
+            "Deogen": {
+                evidence: ["spiritbox", "writing", "dots"],
+                strength: "Deogen constantly sense the living and can't be hidden from during hunts",
+                weakness: "Deogen move slowly when near their target during hunts",
+                tips: "You can't hide from it, but it moves very slowly when close.",
+                icon: "/icons/deogen.png"
+            },
+            "Thaye": {
+                evidence: ["orbs", "writing", "dots"],
+                strength: "Thaye become more active and aggressive over time",
+                weakness: "Thaye weaken over time, making them slower and less aggressive",
+                tips: "Gets weaker over time. Complete objectives quickly.",
+                icon: "/icons/thaye.png"
+            }
+        };
+
+        const maps = {
+            "6 Tanglewood Drive": {
+                image: "/maps/tanglewood.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Living room end table next to couch by framed dog picture" },
+                    { type: "Ouija Board", location: "Basement on table against back wall behind shelves" },
+                    { type: "Music Box", location: "Nursery shelf next to bear plushie on left when entering" },
+                    { type: "Voodoo Doll", location: "Garage on trashcan in corner" },
+                    { type: "Haunted Mirror", location: "Wall by door leading into master bedroom" },
+                    { type: "Summoning Circle", location: "Basement center on ground" },
+                    { type: "Monkey Paw", location: "Glass case between dining room and kitchen" }
+                ]
+            },
+            "42 Edgefield Road": {
+                image: "/maps/edgefield.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Small table to right immediately after entering house" },
+                    { type: "Ouija Board", location: "Laundry room on ground under shelves" },
+                    { type: "Music Box", location: "Living room on table against wall near lamp" },
+                    { type: "Voodoo Doll", location: "Second floor large blue bedroom at end of hallway on bed" },
+                    { type: "Haunted Mirror", location: "Wall by stairs leading to second floor" },
+                    { type: "Summoning Circle", location: "Basement middle of small room" },
+                    { type: "Monkey Paw", location: "Second floor orange bedroom with loft bed on changing table" }
+                ]
+            },
+            "10 Ridgeview Court": {
+                image: "/maps/ridgeview.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Table near bowl of keys to right when entering house" },
+                    { type: "Ouija Board", location: "Small laundry room by hallway near stairs" },
+                    { type: "Music Box", location: "Second floor first bedroom on left on shelf" },
+                    { type: "Voodoo Doll", location: "Bench by piano in small office area near west end" },
+                    { type: "Haunted Mirror", location: "Wall near bottom of stairs" },
+                    { type: "Summoning Circle", location: "Basement on ground by bottom of stairs" },
+                    { type: "Monkey Paw", location: "Second floor bedroom at end of hallway on desk" }
+                ]
+            },
+            "13 Willow Street": {
+                image: "/maps/willow.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Living room on side table by couch" },
+                    { type: "Ouija Board", location: "Corner of small room at back of garage on washing machine" },
+                    { type: "Music Box", location: "Table immediately to left when entering" },
+                    { type: "Voodoo Doll", location: "Blue bedroom at end of hallway inside cabinet" },
+                    { type: "Haunted Mirror", location: "Corner of small room at back of garage on ground" },
+                    { type: "Summoning Circle", location: "Basement main hallway on ground" },
+                    { type: "Monkey Paw", location: "Hallway near bathroom door in glass display case" }
+                ]
+            },
+            "Maple Lodge Campsite": {
+                image: "/maps/maplelodge.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Picnic area cluttered picnic table in front of lake cabin (northeast)" },
+                    { type: "Ouija Board", location: "Small hallway shelf between bathrooms" },
+                    { type: "Music Box", location: "Campfire log near north end of map" },
+                    { type: "Voodoo Doll", location: "Ground near log by campfire (west end)" },
+                    { type: "Haunted Mirror", location: "Reception building wall (left upon entering)" },
+                    { type: "Summoning Circle", location: "Lake cabin floor interior" },
+                    { type: "Monkey Paw", location: "Staff-only area on top of barrel" }
+                ]
+            },
+            "Point Hope": {
+                image: "/maps/pointhope.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "First floor living room end table between two green couches" },
+                    { type: "Ouija Board", location: "Fourth floor games room shelf" },
+                    { type: "Music Box", location: "Sixth floor master bedroom vanity by makeup" },
+                    { type: "Voodoo Doll", location: "Seventh floor children's bedroom on boxes near back" },
+                    { type: "Haunted Mirror", location: "Third floor dining room ground by blue cabinet" },
+                    { type: "Summoning Circle", location: "Fifth floor bathroom center in front of bathtub" },
+                    { type: "Monkey Paw", location: "Eighth floor maintenance room cluttered desk" }
+                ]
+            },
+            "Camp Woodwind": {
+                image: "/maps/campwoodwind.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Picnic table to left when entering front gate" },
+                    { type: "Ouija Board", location: "Games tent near firepit on table" },
+                    { type: "Music Box", location: "Yellow tent on small table on right side" },
+                    { type: "Voodoo Doll", location: "Ground by teal tent near stack of wood" },
+                    { type: "Haunted Mirror", location: "Ground by tree with string lights in middle of camp" },
+                    { type: "Summoning Circle", location: "White food tent between two tables by campfire" },
+                    { type: "Monkey Paw", location: "Covered wooden seating area near back of camp" }
+                ]
+            },
+            "Bleasdale Farmhouse": {
+                image: "/maps/bleasdale.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Attic secret witchy bedroom on Tarot table" },
+                    { type: "Ouija Board", location: "First floor living room against red couch by fireplace" },
+                    { type: "Music Box", location: "First floor pink tea room on cabinet with lace coaster" },
+                    { type: "Voodoo Doll", location: "Second floor master bedroom on ottoman at end of bed" },
+                    { type: "Haunted Mirror", location: "Second floor trophy room on ground against display case" },
+                    { type: "Summoning Circle", location: "First floor cluttered storage room on ground" },
+                    { type: "Monkey Paw", location: "Second floor study on bookshelf in back corner" }
+                ]
+            },
+            "Grafton Farmhouse": {
+                image: "/maps/grafton.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "First floor dining table" },
+                    { type: "Ouija Board", location: "First floor closet attached to master bedroom (northeast corner)" },
+                    { type: "Music Box", location: "First floor wooden shelf next to plant" },
+                    { type: "Voodoo Doll", location: "Second floor nursery on chest at left end of hallway" },
+                    { type: "Haunted Mirror", location: "First floor wall between entryway and living room" },
+                    { type: "Summoning Circle", location: "Second floor storage room attached to upstairs bedroom" },
+                    { type: "Monkey Paw", location: "First floor children's bedroom on table near axe" }
+                ]
+            },
+            "Prison": {
+                image: "/maps/prison.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Corner region inside white bin" },
+                    { type: "Ouija Board", location: "Corner region on ground" },
+                    { type: "Music Box", location: "Corner region in black bin" },
+                    { type: "Voodoo Doll", location: "Corner region on table" },
+                    { type: "Haunted Mirror", location: "Under chairs in middle of waiting room" },
+                    { type: "Summoning Circle", location: "Behind chairs in waiting area on ground" },
+                    { type: "Monkey Paw", location: "Corner region on table near metal detector" }
+                ]
+            },
+            "Brownstone High School": {
+                image: "/maps/brownstone.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Main lobby area on bench" },
+                    { type: "Ouija Board", location: "Main lobby area on ground by pillar" },
+                    { type: "Music Box", location: "Main lobby area on bench near wall" },
+                    { type: "Voodoo Doll", location: "Main lobby area on bench near back" },
+                    { type: "Haunted Mirror", location: "Main lobby area leaning against pillar" },
+                    { type: "Summoning Circle", location: "Main lobby area near top center on ground" },
+                    { type: "Monkey Paw", location: "Main lobby area on box near pillar" }
+                ]
+            },
+            "Sunny Meadows Mental Institution": {
+                image: "/maps/sunnymeadows.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Chapel stage area bottom right position" },
+                    { type: "Ouija Board", location: "Chapel stage area bottom left of red circle" },
+                    { type: "Music Box", location: "Chapel stage area left of red circle pedestal" },
+                    { type: "Voodoo Doll", location: "Chapel stage area" },
+                    { type: "Haunted Mirror", location: "Chapel stage area floor to right of other items" },
+                    { type: "Summoning Circle", location: "Chapel stage area" },
+                    { type: "Monkey Paw", location: "Chapel stage area" }
+                ]
+            },
+            "Sunny Meadows Mental Institution (Restricted)": {
+                image: "/maps/sunnymeadows_restricted.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "Chapel stage area bottom right position" },
+                    { type: "Ouija Board", location: "Chapel stage area bottom left of red circle" },
+                    { type: "Music Box", location: "Chapel stage area left of red circle pedestal" },
+                    { type: "Voodoo Doll", location: "Chapel stage area" },
+                    { type: "Haunted Mirror", location: "Chapel stage area floor to right of other items" },
+                    { type: "Summoning Circle", location: "Chapel stage area" },
+                    { type: "Monkey Paw", location: "Chapel stage area" }
+                ]
+            },
+            "NEW MAP COMING SOON": {
+                image: "/maps/comingsoon.png",
+                cursedObjects: [
+                    { type: "Tarot Cards", location: "N/A" },
+                    { type: "Ouija Board", location: "N/A" },
+                    { type: "Music Box", location: "N/A" },
+                    { type: "Voodoo Doll", location: "N/A" },
+                    { type: "Haunted Mirror", location: "N/A" },
+                    { type: "Summoning Circle", location: "N/A" },
+                    { type: "Monkey Paw", location: "N/A" }
+                ]
+            }
+        };
+
+        let selectedEvidence = [];
+
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Initialize content if needed
+            if (tabName === 'ghosts') {
+                initializeGhostDatabase();
+            } else if (tabName === 'maps') {
+                initializeMapDatabase();
+            }
+        }
+
+        function initializeGhostDatabase() {
+            const container = document.getElementById('ghost-database');
+            if (container.innerHTML) return; // Already initialized
+
+            container.innerHTML = Object.keys(ghosts).map(ghostName => `
+                <div class="ghost-card" onclick="showGhostDetails('${ghostName}')">
+                    <div class="ghost-icon">
+                        <img src="${ghosts[ghostName].icon}" alt="${ghostName}" onerror="this.style.display='none'; this.parentNode.innerHTML='👻';">
+                    </div>
+                    <div class="ghost-name">${ghostName}</div>
+                    <div class="evidence-list">
+                        ${ghosts[ghostName].evidence.map(ev => `
+                            <span class="evidence-badge">${getEvidenceName(ev)}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function initializeMapDatabase() {
+            const container = document.getElementById('map-database');
+            if (container.innerHTML) return; // Already initialized
+
+            container.innerHTML = Object.keys(maps).map(mapName => `
+                <div class="map-card" onclick="showMapDetails('${mapName}')">
+                    <div class="map-name">${mapName}</div>
+                    <div class="map-image">
+                        <img src="${maps[mapName].image}" alt="${mapName}" onerror="this.style.display='none'; this.parentNode.innerHTML='🗺️';">
+                    </div>
+                    <div class="cursed-objects-preview">
+                        <div class="object-count">${maps[mapName].cursedObjects.length} Cursed Objects</div>
+                        <div style="margin-top: 10px; color: #bbb;">
+                            ${maps[mapName].cursedObjects.map(obj => obj.type).join(', ')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getEvidenceName(evidence) {
+            const evidenceNames = {
+                'emf': 'EMF 5',
+                'fingerprints': 'Ultraviolet',
+                'freezing': 'Freezing',
+                'dots': 'D.O.T.S',
+                'writing': 'Writing',
+                'orbs': 'Ghost Orbs',
+                'spiritbox': 'Spirit Box'
+            };
+            return evidenceNames[evidence] || evidence;
+        }
+
+        // Evidence selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const evidenceItems = document.querySelectorAll('.evidence-item');
+            
+            evidenceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const evidence = this.dataset.evidence;
+                    
+                    if (this.classList.contains('selected')) {
+                        // Deselect evidence
+                        this.classList.remove('selected');
+                        selectedEvidence = selectedEvidence.filter(e => e !== evidence);
+                    } else {
+                        // Select evidence (max 4 for mimic detection)
+                        if (selectedEvidence.length < 4) {
+                            this.classList.add('selected');
+                            selectedEvidence.push(evidence);
+                        }
+                    }
+                    
+                    updateResults();
+                });
+            });
+        });
+
+        function clearEvidence() {
+            selectedEvidence = [];
+            document.querySelectorAll('.evidence-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            updateResults();
+        }
+
+        function updateResults() {
+            const resultContainer = document.getElementById('possible-ghosts');
+            
+            if (selectedEvidence.length === 0) {
+                resultContainer.innerHTML = '<p style="color: #bbb;">Select evidence to identify possible ghosts</p>';
+                return;
+            }
+
+            // Find matching ghosts
+            let matchingGhosts = [];
+            
+            // Check if selected evidence has 4 pieces or doesn't match any ghost exactly
+            let exactMatches = Object.keys(ghosts).filter(ghostName => {
+                if (ghostName === 'The Mimic') return false; // Skip mimic for exact matching
+                
+                const ghostEvidence = ghosts[ghostName].evidence;
+                return selectedEvidence.length === ghostEvidence.length && 
+                       selectedEvidence.every(ev => ghostEvidence.includes(ev)) &&
+                       ghostEvidence.every(ev => selectedEvidence.includes(ev));
+            });
+
+            // If 4 evidence selected or no exact matches found with 3 evidence, it's The Mimic
+            if (selectedEvidence.length >= 4 || (selectedEvidence.length === 3 && exactMatches.length === 0)) {
+                matchingGhosts = ['The Mimic'];
+            } else {
+                // Find ghosts that could match with the current evidence
+                matchingGhosts = Object.keys(ghosts).filter(ghostName => {
+                    if (ghostName === 'The Mimic') return false;
+                    
+                    const ghostEvidence = ghosts[ghostName].evidence;
+                    return selectedEvidence.every(ev => ghostEvidence.includes(ev));
+                });
+            }
+
+            if (matchingGhosts.length === 0) {
+                resultContainer.innerHTML = '<p style="color: #ff6b6b;">No ghosts match this evidence combination. Check for The Mimic!</p>';
+                return;
+            }
+
+            resultContainer.innerHTML = `
+                <div class="possible-ghosts-grid">
+                    ${matchingGhosts.map(ghostName => `
+                        <div class="ghost-card" onclick="showGhostDetails('${ghostName}')">
+                            <div class="ghost-icon">
+                                <img src="${ghosts[ghostName].icon}" alt="${ghostName}" onerror="this.style.display='none'; this.parentNode.innerHTML='👻';">
+                            </div>
+                            <div class="ghost-name">${ghostName}</div>
+                            <div class="evidence-list">
+                                ${ghosts[ghostName].evidence.map(ev => `
+                                    <span class="evidence-badge ${selectedEvidence.includes(ev) ? 'selected' : ''}">${getEvidenceName(ev)}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showGhostDetails(ghostName) {
+            const ghost = ghosts[ghostName];
+            const modal = document.getElementById('ghost-modal');
+            const details = document.getElementById('ghost-details');
+            
+            details.innerHTML = `
+                <div class="modal-ghost-name">
+                    <img src="${ghost.icon}" alt="${ghostName}" style="width: 60px; height: 60px; vertical-align: middle; margin-right: 15px; border-radius: 8px;" onerror="this.style.display='none';">
+                    ${ghostName}
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Evidence Required</h3>
+                    <div class="evidence-list">
+                        ${ghost.evidence.map(ev => `
+                            <span class="evidence-badge">${getEvidenceName(ev)}</span>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Strength</h3>
+                    <p>${ghost.strength}</p>
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Weakness</h3>
+                    <p>${ghost.weakness}</p>
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Hunting Tips</h3>
+                    <p>${ghost.tips}</p>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function showMapDetails(mapName) {
+            const map = maps[mapName];
+            const modal = document.getElementById('map-modal');
+            const details = document.getElementById('map-details');
+            
+            details.innerHTML = `
+                <div class="modal-ghost-name">${mapName}</div>
+                
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div class="modal-map-image">
+                        <img src="${map.image}" alt="${mapName}" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\\'display: flex; align-items: center; justify-content: center; height: 100%; color: #666; font-size: 2em;\\'>🗺️</div>';">
+                    </div>
+                    <p style="color: #bbb; margin-top: 10px;">Map layout</p>
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Cursed Objects & Locations</h3>
+                    ${map.cursedObjects.map(obj => `
+                        <div style="margin-bottom: 20px; background: #2a2a2a; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #4CAF50; margin-bottom: 10px;">${obj.type}</h4>
+                            <div style="color: #bbb;">
+                                <strong>Location:</strong> ${obj.location}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="ghost-section">
+                    <h3>Quick Reference</h3>
+                    <p><strong>Total Cursed Objects:</strong> ${map.cursedObjects.length}</p>
+                    <p><strong>Object Types:</strong> ${[...new Set(map.cursedObjects.map(obj => obj.type))].join(', ')}</p>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close');
+            
+            closeButtons.forEach(closeBtn => {
+                closeBtn.onclick = function() {
+                    this.closest('.modal').style.display = 'none';
+                };
+            });
+            
+            window.onclick = function(event) {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            };
+        });
